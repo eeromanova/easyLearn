@@ -1,0 +1,11 @@
+.header__container{
+    margin: 10px;
+align-items: center;
+gap: 10px;
+    display: flex;
+}
+.header{
+    color: white;
+    text-align: start;
+    font-size: 42px;
+}
