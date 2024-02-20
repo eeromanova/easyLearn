@@ -7,7 +7,7 @@ function Headermain() {
       <img src={Logo} alt="logo" className="logo" />
       <div className="header__text_container">
         <h1 className="header__first">easy</h1>
-        <p className="header__second">Learn</p>
+        <p className="header__second">learn</p>
       </div>
     </div>
   );
