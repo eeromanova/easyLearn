@@ -5,7 +5,10 @@ function Headermain() {
   return (
     <div className="header__container">
       <img src={Logo} alt="logo" className="logo" />
-      <h1 className="header">easyLearn</h1>
+      <div className="header__text_container">
+        <h1 className="header__first">easy</h1>
+        <p className="header__second">Learn</p>
+      </div>
     </div>
   );
 }

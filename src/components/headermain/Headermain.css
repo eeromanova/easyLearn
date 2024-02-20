@@ -1,11 +1,27 @@
 .header__container{
     margin: 10px;
-align-items: center;
-gap: 10px;
+align-items:stretch;
     display: flex;
+    gap: 10px;
 }
-.header{
+.header__text_container{
+    display: flex;
+    align-items: baseline;
+}
+.header__first{
     color: white;
     text-align: start;
     font-size: 42px;
+    font-weight:800;
+    margin: 0;
+}
+.header__second{
+    color: white;
+    text-align: start;
+    font-size: 42px;
+    font-weight:150;
+    margin: 0;
+}
+.logo{
+    width: 40px;
 }

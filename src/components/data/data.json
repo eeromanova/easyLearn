@@ -1,0 +1,42 @@
+[
+    {
+        "id": "15268",
+        "english": "hello",
+        "transcription": "[ˈtrævl]",
+        "russian": "привет",
+        "tags": "приветствие ",
+        "tags_json": "[\"u043fu0440u0438u0432u0435u0442u0441u0442u0432u0438u0435 \"]"
+    },
+    {
+        "id": "15271",
+        "english": "cat",
+        "transcription": "[kæt]",
+        "russian": "кошка",
+        "tags": "",
+        "tags_json": "[\"\"]"
+    },
+    {
+        "id": "15272",
+        "english": "dog",
+        "transcription": "[dɒg]",
+        "russian": "собака",
+        "tags": "",
+        "tags_json": "[\"\"]"
+    },
+    {
+        "id": "15274",
+        "english": "money",
+        "transcription": "money",
+        "russian": "деньги",
+        "tags": "",
+        "tags_json": "[]"
+    },
+    {
+        "id": "15276",
+        "english": "parent",
+        "transcription": "",
+        "russian": "родитель",
+        "tags": "",
+        "tags_json": "[]"
+    }
+]
