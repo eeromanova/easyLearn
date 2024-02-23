@@ -1,13 +1,13 @@
-import "./Headermain.css";
+import styles from "./headermain.module.css";
 import Logo from "../svg/logo.svg";
 
 function Headermain() {
   return (
-    <div className="header__container">
-      <img src={Logo} alt="logo" className="logo" />
-      <div className="header__text_container">
-        <h1 className="header__first">easy</h1>
-        <p className="header__second">learn</p>
+    <div className={styles.container}>
+      <img src={Logo} alt="logo" className={styles.logo} />
+      <div className={styles.text__container} >
+        <h1 className={styles.first} >easy</h1>
+        <p className={styles.second} >learn</p>
       </div>
     </div>
   );

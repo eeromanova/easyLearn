@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+.container_input{
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    /* background-color:  rgb(96, 72, 117); */
+    color:white;
+}
+.container_buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}

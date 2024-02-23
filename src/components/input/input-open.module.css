@@ -1,0 +1,14 @@
+.input {
+  min-height: 30px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(225, 217, 230);
+  color: white rgb(148, 113, 178);
+}
+.input:hover {
+  border-left: none;
+  border-right: none;
+  border-top: 1.5px solid rgb(166, 160, 170);
+  border-bottom: 1.5px solid rgb(166, 160, 170);
+}
