@@ -3,7 +3,7 @@
   margin-bottom: 5px;
   border-radius: 10px;
   border: none;
-  background-color: rgb(225, 217, 230);
+  background-color: var(--color-input);
   color: white rgb(148, 113, 178);
 }
 .input:hover {

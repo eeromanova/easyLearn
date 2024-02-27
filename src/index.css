@@ -5,11 +5,17 @@ body {
   font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(148, 113, 178);
-  /* background-color: rgba(2, 13, 69, 1); */
+background-color: var(--color-primary);
+  /* background-color: rgb(148, 113, 178); */
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+:root {
+  --color-primary:rgb(148, 113, 178);
+  --color-secondary:rgb(83, 5, 135);
+  --color-input:rgb(255, 255, 255);
 }

@@ -4,8 +4,8 @@
     margin-bottom: 5px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(83, 5, 135);
-    opacity: 0.6;
+    background-color: var(--color-secondary);
+    opacity: 0.5;
     box-shadow: 1px 1px 1px rgb(31, 2, 50);
 }
 .image {

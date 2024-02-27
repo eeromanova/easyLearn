@@ -4,11 +4,8 @@
   border-radius: 10px;
   border-left: none;
   border-right: none;
-  border-top: 1.5px solid rgb(83, 5, 135);
-  border-bottom: 1.5px solid rgb(83, 5, 135);
-  /* border-bottom: 1.5px solid rgb(166, 160, 170); */
-  background-color: rgb(148, 113, 178);
+  border-top: 1.5px solid var(--color-secondary);
+  border-bottom: 1.5px solid var(--color-secondary);
+  background-color: var(--color-primary);
   color: white;
-  /* background-color: rgb(243, 233, 252);
-  color: rgb(148, 113, 178) ; */
 }
