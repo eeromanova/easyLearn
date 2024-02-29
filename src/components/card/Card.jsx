@@ -10,7 +10,7 @@ function Card() {
     console.log("clicked");
     setClicked(true);
   };
-  let checkTranslation = <Cardbutton onClick={handleClick} />;
+  let checkTranslation = <Cardbutton onHandleClick={handleClick} />;
   if (clicked) {
     checkTranslation = <p className={styles.translation}>{data[2].russian}</p>;
   }
