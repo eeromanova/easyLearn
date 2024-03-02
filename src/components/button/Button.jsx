@@ -2,9 +2,9 @@ import styles from './button.module.css'
 
 
 function Button(props) {
-  const { content } = props;
+  const { content, onHandleClick } = props;
   return (
-    <button className={styles.button}>
+    <button onClick={onHandleClick} className={styles.button}>
       <img src={content} alt='icon' className={styles.image} />
     </button>
   );

@@ -6,12 +6,11 @@
 .container_input{
     display: flex;
     gap: 5px;
-    justify-content: space-between;
-    /* background-color:  rgb(96, 72, 117); */
+    justify-content: flex-start;
     color:white;
 }
 .container_buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 5px;
 }

@@ -3,6 +3,8 @@
     height: 30px;
     background-color: var(--color-secondary);
     color: white;
+    /* background-color: var(--color-primary);
+    color: var(--color-secondary); */
     border-radius: 10px;
     border: none;
 }

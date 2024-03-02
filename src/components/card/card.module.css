@@ -10,8 +10,15 @@ background-color: white;
 border-radius: 10px;
 border: 2px solid var(--color-secondary);
 }
+.container_words{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .term{
-
+    margin: 0;
+    font-size: 28px;
+    
 }
 .transcript{
 

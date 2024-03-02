@@ -16,8 +16,10 @@ function Card() {
   }
   return (
     <div className={styles.container}>
-      <p className={styles.term}>{data[2].english}</p>
-      <p className={styles.transcript}>{data[2].transcription}</p>
+      <div className={styles.container_words}>
+        <p className={styles.term}>{data[2].english}</p>
+        <p className={styles.transcript}>{data[2].transcription}</p>
+      </div>
       {checkTranslation}
     </div>
   );

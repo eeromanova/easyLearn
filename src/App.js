@@ -2,7 +2,7 @@
 import "./App.css";
 import Card from "./components/card/Card";
 import Headermain from "./components/headermain/Headermain";
-import List from "./components/list/List";
+import List from './components/list/List';
 
 function App() {
   return (

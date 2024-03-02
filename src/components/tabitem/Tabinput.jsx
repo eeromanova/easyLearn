@@ -1,18 +1,18 @@
 import Input from "../input/Input";
 import styles from "./item.module.css";
-import themeOpen from "../input/input-open.module.css";
 import Buttonsave from "../button/Buttonsave";
 import Button from "../button/Button";
-import Edit from "../svg/edit_icon.svg";
-import Delete from "../svg/delete_icon.svg";
+import Edit from "../../assets/image/svg/edit_icon.svg";
+import Delete from "../../assets/image/svg/delete_icon.svg";
 
 function Tabinput() {
-  return (
+
+    return (
     <div className={styles.container}>
       <div className={styles.container_input}>
-        <Input theme={themeOpen} placeholder="term" />
-        <Input theme={themeOpen} placeholder="transcription" />
-        <Input theme={themeOpen} placeholder="translation" />
+        <Input status='open' placeholder="term"  />
+        <Input status='open' placeholder="transcription" />
+        <Input status='open' placeholder="translation" />
       </div>
       <div className={styles.container_buttons}>
         <Buttonsave />

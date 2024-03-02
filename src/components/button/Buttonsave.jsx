@@ -1,5 +1,5 @@
 import Button from "../button/Button";
-import Save from "../svg/save_icon.svg";
+import Save from "../../assets/image/svg/save_icon.svg";
 
 function Buttonsave() {
     return (

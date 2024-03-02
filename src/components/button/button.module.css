@@ -1,14 +1,17 @@
 .button {
-    width: 35px;
+    display: flex;
+    width: 50px;
     min-height: 35px;
     margin-bottom: 5px;
     border-radius: 10px;
     border: none;
-    background-color: var(--color-secondary);
-    opacity: 0.5;
+    background-color: var(--color-primary);
+    /* background-color: var(--color-secondary); */
+    /* opacity: 0.5; */
     box-shadow: 1px 1px 1px rgb(31, 2, 50);
 }
 .image {
     width: 16px;
     margin: auto;
+    align-items: center;
 }
