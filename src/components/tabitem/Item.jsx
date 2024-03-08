@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import styles from "./item.module.css";
 import Input from "../input/Input";
-// import Buttonsave from "../button/Buttonsave";
 import Button from "../button/Button";
 import Edit from "../../assets/image/svg/edit_icon.svg";
 import Delete from "../../assets/image/svg/delete_icon.svg";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
+import Buttonclear from "../button/Buttonclear";
 
 function Item(props) {
   const { term, transcription, translation } = props;
@@ -21,8 +21,8 @@ function Item(props) {
   const handleCancel = () => {
     setCancel(true);
   };
-  let buttonSave;
-  let buttonCancel;
+  let buttonSave=<Buttonclear/>;
+  let buttonCancel=<Buttonclear/>;
   // let inputTerm=<Input status={status} content={term} changing={changing}/>;
   // let inputTranscription=<Input status={status} content={transcription} changing={changing} />
   // let inputTranslation=<Input status={status} content={translation} changing={changing}/>
@@ -33,8 +33,8 @@ function Item(props) {
     changing = false;
   }
   if (cancel) {
-    buttonSave = "";
-    buttonCancel = "";
+    buttonSave = <Buttonclear/>;
+    buttonCancel = <Buttonclear/>;
     status = "saved";
     changing = true;
   }
@@ -42,7 +42,10 @@ function Item(props) {
   return (
     <div className={styles.container}>
       <div className={styles.container_input}>
-        <Input status={status} content={term} changing={changing}/>
+        {/* {inputTerm}
+        {inputTranscription}
+        {inputTranslation} */}
+        <Input status={status} content={term} changing={changing} />
         <Input status={status} content={transcription} changing={changing}/>
         <Input status={status} content={translation} changing={changing}/>
       </div>

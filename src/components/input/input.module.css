@@ -16,5 +16,5 @@
 .open{
   border: none;
   background-color: var(--color-input);
-  color: rgb(148, 113, 178);
+  color:var(--color-secondary);
 }

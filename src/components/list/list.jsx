@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../data/data.json";
+import data from "../../assets/data/data.json";
 import Item from  '../tabitem/Item';
 import styles from "./list.module.css";
 import Tabinput from "../tabitem/Tabinput";
