@@ -1,5 +1,5 @@
 import styles from "./cards.module.css";
-import Card from "../card/Card";
+// import Card from "../card/Card";
 import Button from "../button/Button";
 import Arrowleft from "../../assets/image/svg/arrow_left.svg";
 import Arrowright from "../../assets/image/svg/arrow_right.svg";
@@ -33,11 +33,6 @@ function Cards() {
     <div className={styles.container}>
       {buttonleft}
       <Cardchange
-        term={data[index].english}
-        transcription={data[index].transcription}
-        translation={data[index].russian}
-      />
-      <Card
         term={data[index].english}
         transcription={data[index].transcription}
         translation={data[index].russian}

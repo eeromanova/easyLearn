@@ -1,6 +1,6 @@
 // import data from "../data/data.json";
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import styles from "./card.module.css";
 import Cardbutton from "../cardbutton/Cardbutton";
 
@@ -9,6 +9,9 @@ function Cardchange(props) {
   const [clicked, setClicked] = useState(false);
   let stylefront = `${styles.containerfront} ${styles.containerfront_unclick}`;
   let styleback = `${styles.containerback} ${styles.containerback_unclick}`;
+  useEffect(() => {
+    setClicked(false); // Сбросить состояние clicked при изменении props
+  }, [term, transcription, translation]);
   // let checkTranslation = <Cardbutton onHandleClick={handleClick} />;
   const handleClick = () => {
     console.log("clicked");

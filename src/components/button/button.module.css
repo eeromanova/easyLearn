@@ -6,8 +6,6 @@
     border-radius: 10px;
     border: none;
     background-color: var(--color-primary);
-    /* background-color: var(--color-secondary); */
-    /* opacity: 0.5; */
     box-shadow: 1px 1px 1px rgb(31, 2, 50);
 }
 .image {
@@ -18,9 +16,12 @@
 .button:hover {
     box-shadow:none;
     transform: scale(1.1);
+    transition: transform 0.8s;
+    background-color: var(--color-secondary);
 }
 .button:active {
-   background-color: var(--color-secondary);
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-secondary);
 }
 .clear {
     width: 50px;

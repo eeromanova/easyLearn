@@ -13,31 +13,34 @@ function Item(props) {
   const { term, transcription, translation } = props;
   let status = "saved";
   let changing = true;
-  const [change, setChange] = useState(false);
-  const handleClick = () => {
-    setChange(true);
-  };
-  const [cancel, setCancel] = useState(false);
-  const handleCancel = () => {
-    setCancel(true);
-  };
   let buttonSave=<Buttonclear/>;
   let buttonCancel=<Buttonclear/>;
+  const [change, setChange] = useState(false);
+  const handleClick = () => {
+    console.log(status);
+    setChange(!change);
+  };
+  // const [cancel, setCancel] = useState(false);
+  // const handleCancel = () => {
+  //   console.log(status);
+  //   setCancel(true);
+  // };
+
   // let inputTerm=<Input status={status} content={term} changing={changing}/>;
   // let inputTranscription=<Input status={status} content={transcription} changing={changing} />
   // let inputTranslation=<Input status={status} content={translation} changing={changing}/>
   if (change) {
-    buttonCancel = <Button onHandleClick={handleCancel} content={Cancel} />;
+    buttonCancel = <Button onHandleClick={handleClick} content={Cancel} />;
     buttonSave = <Button content={Save} />;
     status = "open";
     changing = false;
   }
-  if (cancel) {
-    buttonSave = <Buttonclear/>;
-    buttonCancel = <Buttonclear/>;
-    status = "saved";
-    changing = true;
-  }
+  // if (cancel) {
+  //   buttonSave = <Buttonclear/>;
+  //   buttonCancel = <Buttonclear/>;
+  //   status = "saved";
+  //   changing = true;
+  // }
 
   return (
     <div className={styles.container}>
