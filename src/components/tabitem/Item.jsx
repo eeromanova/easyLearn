@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./item.module.css";
 import Input from "../input/Input";
 import Button from "../button/Button";
@@ -13,49 +13,73 @@ function Item(props) {
   const { term, transcription, translation } = props;
   let status = "saved";
   let changing = true;
-  let buttonSave=<Buttonclear/>;
-  let buttonCancel=<Buttonclear/>;
+  let buttonSave = <Buttonclear />;
   const [change, setChange] = useState(false);
   const handleClick = () => {
-    console.log(status);
     setChange(!change);
   };
-  // const [cancel, setCancel] = useState(false);
-  // const handleCancel = () => {
-  //   console.log(status);
-  //   setCancel(true);
-  // };
 
-  // let inputTerm=<Input status={status} content={term} changing={changing}/>;
-  // let inputTranscription=<Input status={status} content={transcription} changing={changing} />
-  // let inputTranslation=<Input status={status} content={translation} changing={changing}/>
+  let buttonEditCancel = <Button onHandleClick={handleClick} content={Edit} />;
   if (change) {
-    buttonCancel = <Button onHandleClick={handleClick} content={Cancel} />;
+    buttonEditCancel = <Button onHandleClick={handleClick} content={Cancel} />;
     buttonSave = <Button content={Save} />;
     status = "open";
     changing = false;
+    console.log(changing);
   }
-  // if (cancel) {
-  //   buttonSave = <Buttonclear/>;
-  //   buttonCancel = <Buttonclear/>;
-  //   status = "saved";
-  //   changing = true;
-  // }
+
+  const [valueTerm, setValueTerm] = useState(term);
+  const [valueTranscription, setvalueTranscription] = useState(transcription);
+  const [valueTranslation, setvalueTranslation] = useState(translation);
+  const onHandleChangeTerm = (e) => {
+    if (change) {
+      setValueTerm(e.target.value);
+    }
+  };
+  const onHandleChangeTranscription = (e) => {
+    if (change) {
+      setvalueTranscription(e.target.value);
+    }
+  };
+  const onHandleChangeTranslation = (e) => {
+    if (change) {
+      setvalueTranslation(e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    setValueTerm(term);
+    setvalueTranscription(transcription);
+    setvalueTranslation(translation);
+  }, [change]);
 
   return (
     <div className={styles.container}>
       <div className={styles.container_input}>
-        {/* {inputTerm}
-        {inputTranscription}
-        {inputTranslation} */}
-        <Input status={status} content={term} changing={changing} />
-        <Input status={status} content={transcription} changing={changing}/>
-        <Input status={status} content={translation} changing={changing}/>
+        <Input
+          status={status}
+          content={valueTerm}
+          changing={changing}
+          onHandleChange={onHandleChangeTerm}
+        />
+        <Input
+          status={status}
+          content={valueTranscription}
+          changing={changing}
+          onHandleChange={onHandleChangeTranscription}
+        />
+        <Input
+          status={status}
+          content={valueTranslation}
+          changing={changing}
+          onHandleChange={onHandleChangeTranslation}
+        />
       </div>
       <div className={styles.container_buttons}>
-        {buttonCancel}
+        {/* {buttonCancel} */}
         {buttonSave}
-        <Button onHandleClick={handleClick} content={Edit} />
+        {buttonEditCancel}
+        {/* <Button onHandleClick={handleClick} content={Edit} /> */}
         <Button content={Delete} />
       </div>
     </div>
