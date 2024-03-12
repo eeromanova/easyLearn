@@ -1,0 +1,9 @@
+.footer{
+    background-color: white;
+    color: var(--color-primary);
+    position: fixed;
+    bottom: 0;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid var(--color-primary);
+}

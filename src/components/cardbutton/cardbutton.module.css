@@ -1,7 +1,7 @@
 .cardbutton{
     width: 100px;
     height: 40px;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     color: white;
     border-radius: 10px;
     border: none;
@@ -9,6 +9,8 @@
 }
 
 .cardbutton:hover{
+    background-color: var(--color-secondary);
 
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
+    transition: background-color 1.5s;
 }

@@ -25,9 +25,9 @@ function Cards() {
     }
   };
 
-  let buttonleft = <Buttonclear />;
+  let buttonleft = <Buttonclear bgcolor='primary'/>;
   if (index > 0) {
-    buttonleft = <Button onHandleClick={handleClickLeft} content={Arrowleft} />;
+    buttonleft = <Button bgcolor='primary' onHandleClick={handleClickLeft} content={Arrowleft} />;
   }
   return (
     <div className={styles.container}>
@@ -37,7 +37,7 @@ function Cards() {
         transcription={data[index].transcription}
         translation={data[index].russian}
       />
-      <Button onHandleClick={handleClickRight} content={Arrowright} />
+      <Button bgcolor='primary' onHandleClick={handleClickRight} content={Arrowright} />
     </div>
   );
 }

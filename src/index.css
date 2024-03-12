@@ -2,7 +2,8 @@
 
 body {
   margin: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Nunito, sans-serif;
+  font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 background-color: var(--color-primary);
@@ -15,8 +16,10 @@ code {
     monospace;
 }
 :root {
-  --color-primary:rgb(148, 113, 178);
-  --color-secondary:rgb(83, 5, 135);
+  --color-primary:rgb(43, 39, 70);
+  --color-secondary:rgb(151, 148, 176);
   --color-input:rgb(255, 255, 255);
   --fontsize: 16px;
+  /* --color-primary:rgb(182, 178, 207);
+  --color-secondary:rgb(43, 39, 70); */
 }

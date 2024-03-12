@@ -2,15 +2,17 @@
     display: flex;
     gap: 5px;
     justify-content: center;
+
+    height: 50px;
+    background-color: var(--color-secondary);
+    border-radius: 5px;
 }
 .container_input{
     display: flex;
     gap: 5px;
-    justify-content: flex-start;
     color:white;
 }
 .container_buttons{
     display: flex;
-    justify-content: flex-end;
     gap: 5px;
 }

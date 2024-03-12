@@ -4,7 +4,6 @@ import Button from "../button/Button";
 import Edit from "../../assets/image/svg/edit_icon.svg";
 import Delete from "../../assets/image/svg/delete_icon.svg";
 import Save from "../../assets/image/svg/save_icon.svg";
-// import Buttonclear from "../button/Buttonclear";
 
 function Tabinput() {
   return (
@@ -15,10 +14,9 @@ function Tabinput() {
         <Input status="open" placeholder="translation" />
       </div>
       <div className={styles.container_buttons}>
-        {/* <Buttonclear/> */}
-        <Button content={Save} />
-        <Button content={Edit} />
-        <Button content={Delete} />
+        <Button bgcolor="secondary" content={Save} />
+        <Button bgcolor="secondary" content={Edit} />
+        <Button bgcolor="secondary" content={Delete} />
       </div>
     </div>
   );

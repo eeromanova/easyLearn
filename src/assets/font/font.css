@@ -4,3 +4,7 @@
     url("./fonts/Montserrat-Medium.ttf") format("truetype"),
     url("./fonts/Montserrat-Thin.ttf") format("truetype");
 }
+@font-face {
+  font-family: 'Nunito';
+  src: url('./fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+}

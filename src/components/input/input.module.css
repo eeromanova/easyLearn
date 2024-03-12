@@ -1,21 +1,24 @@
 .input {
   /* min-width: 150px; */
   min-height: 30px;
-  margin-bottom: 5px;
+  margin:5px auto;
   border-radius: 10px;
   font-size: 16px;
+  font-family: Nunito;
+  border: none;
+  text-align: center;
 
 }
 .saved{
-  border-left: none;
+  /* border-left: none;
   border-right: none;
   border-top: 1.5px solid var(--color-secondary);
-  border-bottom: 1.5px solid var(--color-secondary);
-  background-color: var(--color-primary);
+  border-bottom: 1.5px solid var(--color-secondary); */
+  background-color: var(--color-secondary);
   color: white;
 }
 .open{
-  border: none;
+  /* border: none; */
   background-color: var(--color-input);
-  color:var(--color-secondary);
+  color:var(--color-primary);
 }

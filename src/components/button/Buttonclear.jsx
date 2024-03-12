@@ -1,6 +1,8 @@
 import styles from "./button.module.css";
 
-function Buttonclear() {
-  return <button className={styles.clear} disabled></button>;
+function Buttonclear(props) {
+  const { bgcolor } = props;
+  const buttonclearstyle=`${styles.clear} ${styles[bgcolor]}`;
+  return <button className={buttonclearstyle} disabled></button>;
 }
 export default Buttonclear;
