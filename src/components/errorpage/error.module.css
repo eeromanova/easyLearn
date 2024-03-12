@@ -1,6 +1,6 @@
 .containerouter {
   background-color: var(--color-primary);
-  height: 60vh;
+  height: 50vh;
 }
 .containerinner {
   margin: 20px;
