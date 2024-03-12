@@ -1,6 +1,6 @@
 .cardbutton{
-    width: 100px;
-    height: 40px;
+    width: 90px;
+  height: 40px;
     background-color: var(--color-primary);
     color: white;
     border-radius: 10px;
