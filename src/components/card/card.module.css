@@ -17,7 +17,6 @@
   justify-content: space-evenly;
   background-color: white;
   border-radius: 10px;
-  /* border: 2px solid var(--color-secondary); */
   position: absolute;
   overflow: hidden;
   backface-visibility: hidden;
@@ -33,10 +32,10 @@
   color: var(--color-primary);
 }
 .transcript {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 .translation {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 .containerfront_unclick {
   transform: rotateY(0deg);
