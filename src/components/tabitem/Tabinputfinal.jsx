@@ -1,7 +1,7 @@
 
 import styles from "./item.module.css";
 import Button from "../button/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Tabinput from "./Tabinput";
 import Add from "../../assets/image/svg/add_icon.svg";
 

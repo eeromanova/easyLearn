@@ -1,16 +1,18 @@
 .containerouter {
-  background-color: var(--color-primary);
-  height: 50vh;
+  background-image: url(../../assets/image/svg/back2.svg);
+  background-size: cover;
+  height: 60vh;
 }
 .containerinner {
-  margin: 20px;
+  /* margin: 20px; */
   height: 100%;
   border-radius: 20px;
   padding: 50px;
   display: grid;
   grid-template-columns: 40% 60%;
   align-items: center;
-  background-color: var(--color-secondary);
+  /* background-color: var(--color-secondary); */
+  backdrop-filter: blur(30px);
   color: white;
 }
 .textcontainer {
@@ -38,13 +40,13 @@
   text-decoration: none;
 }
 .link:hover {
-    background-color: var(--color-primary);
-    transition: background-color 2s;
-    color: white;
+  background-color: var(--color-primary);
+  transition: background-color 2s;
+  color: white;
 }
 .errornumber {
   margin: 0;
   font-size: 200px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: var(--color-primary);
+  color:white;
 }
