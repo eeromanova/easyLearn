@@ -1,25 +1,48 @@
 .containerouter {
-  background-image: url(../../assets/image/svg/back2.svg);
-  background-size: cover;
-  height: 60vh;
+  background-image: url(../../assets/image/svg/error_window_icon.svg);
+  /* background-image: url(../../assets/image/svg/logo.svg); */
+
+
+  animation: animatedBack 20s linear infinite;
+  /* background-size: cover; */
+
+  height: 75vh;
+  display: flex;
 }
+@keyframes animatedBack {
+  0% {
+    background-position:0 0;
+  }
+  100% {
+    background-position:-600px 600px;
+  }
+}
+/* 
 .containerinner {
-  /* margin: 20px; */
+  margin: 20px;
   height: 100%;
-  border-radius: 20px;
-  padding: 50px;
+  /* border-radius: 20px; */
+  /* padding: 50px;
   display: grid;
   grid-template-columns: 40% 60%;
-  align-items: center;
+  align-items: center; */
   /* background-color: var(--color-secondary); */
-  backdrop-filter: blur(30px);
-  color: white;
-}
+  /* backdrop-filter: blur(40px); */
+  /* color: white; */
+/* } */ 
+
 .textcontainer {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: flex-start;
-  margin-left: 20px;
+  margin: auto 20px;
+  width: 45%;
+  height: 80%;
+  padding: 20px;
+  backdrop-filter: blur(40px);
+  color: white;
+  border-radius: 20px;
 }
 .error {
   border-radius: 20px;
@@ -41,8 +64,8 @@
 }
 .link:hover {
   background-color: var(--color-primary);
-  transition: background-color 2s;
   color: white;
+  transition: background-color 2s ;
 }
 .errornumber {
   margin: 0;
