@@ -40,7 +40,7 @@
   width: 45%;
   height: 80%;
   padding: 20px;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(30px);
   color: white;
   border-radius: 20px;
 }

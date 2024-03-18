@@ -13,24 +13,11 @@ function Item(props) {
   const { term, transcription, translation } = props;
   let status = "saved";
   let changing = true;
-  let buttonSave = <Buttonclear bgcolor="secondary" />;
   const [change, setChange] = useState(false);
   const handleClick = () => {
     setChange(!change);
   };
-
-  let buttonEditCancel = (
-    <Button bgcolor="secondary" onHandleClick={handleClick} content={Edit} />
-  );
   if (change) {
-    buttonEditCancel = (
-      <Button
-        bgcolor="secondary"
-        onHandleClick={handleClick}
-        content={Cancel}
-      />
-    );
-    buttonSave = <Button bgcolor="secondary" content={Save} />;
     status = "open";
     changing = false;
     console.log(changing);
@@ -84,10 +71,24 @@ function Item(props) {
         />
       </div>
       <div className={styles.container_buttons}>
-        {/* {buttonCancel} */}
-        {buttonSave}
-        {buttonEditCancel}
-        {/* <Button onHandleClick={handleClick} content={Edit} /> */}
+        {change ? (
+          <Button bgcolor="secondary" content={Save} />
+        ) : (
+          <Buttonclear bgcolor="secondary" />
+        )}
+        {change ? (
+          <Button
+            bgcolor="secondary"
+            onHandleClick={handleClick}
+            content={Cancel}
+          />
+        ) : (
+          <Button
+            bgcolor="secondary"
+            onHandleClick={handleClick}
+            content={Edit}
+          />
+        )}
         <Button bgcolor="secondary" content={Delete} />
       </div>
     </div>
