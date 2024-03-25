@@ -26,6 +26,25 @@
   font-size: 20px;
 }
 .count {
+  opacity: 0;
   color: white;
-  margin: 10px auto;
+  margin-top: 5px;
+  margin-bottom: 0;
+  animation: animate 2.5s forwards;
+}
+.info {
+    opacity: 0;
+    color: white;
+    margin-top: 0;
+    animation: animate 2.5s forwards;
+    font-size: 14px;
+    color: var(--color-secondary);
+  }
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

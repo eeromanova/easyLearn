@@ -96,7 +96,7 @@ function Cards() {
         />
       </div>
       {count ? <p className={styles.count}>Checked: {count}/{data.length}</p> : ""}
-      {count===data.length? <p className={styles.count}>You have checked all the words</p> : ""}
+      {count===data.length? <p className={styles.info}>You have checked all the words</p> : ""}
     </div>
   );
 }
