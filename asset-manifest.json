@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/easylearn/static/css/main.39892db9.css",
+    "main.js": "/easylearn/static/js/main.d04d5ce1.js",
+    "static/js/453.f4b168fe.chunk.js": "/easylearn/static/js/453.f4b168fe.chunk.js",
+    "static/media/edit_icon.svg": "/easylearn/static/media/edit_icon.42c19cf9ca829715bc38ec08d866d250.svg",
+    "static/media/change_icon.svg": "/easylearn/static/media/change_icon.184ff843ed26471c1ed31d2764415d9d.svg",
+    "static/media/error_window_icon.svg": "/easylearn/static/media/error_window_icon.5e8c4ed4ba94aeff2065.svg",
+    "static/media/delete_icon.svg": "/easylearn/static/media/delete_icon.a90c39479f58c518d0a104b9c938d99c.svg",
+    "static/media/cancel_icon.svg": "/easylearn/static/media/cancel_icon.78c4d7b9175ff727caaae0310f107bc6.svg",
+    "index.html": "/easylearn/index.html",
+    "static/media/logo.svg": "/easylearn/static/media/logo.418f50dc3198db3263267437ba1b48a1.svg",
+    "static/media/arrow_left.svg": "/easylearn/static/media/arrow_left.f065ec91247726ac1161cc66d83bca75.svg",
+    "static/media/arrow_right.svg": "/easylearn/static/media/arrow_right.1461276e8e80dd3c9567a32b46fe10f0.svg",
+    "static/media/add_icon.svg": "/easylearn/static/media/add_icon.d9392a87bd29c6e56ad4dcc278ad5d3f.svg",
+    "static/media/save_icon.svg": "/easylearn/static/media/save_icon.226637c96a922b53b86b1227f6c4c16f.svg",
+    "main.39892db9.css.map": "/easylearn/static/css/main.39892db9.css.map",
+    "main.d04d5ce1.js.map": "/easylearn/static/js/main.d04d5ce1.js.map",
+    "453.f4b168fe.chunk.js.map": "/easylearn/static/js/453.f4b168fe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39892db9.css",
+    "static/js/main.d04d5ce1.js"
+  ]
+}
