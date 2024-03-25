@@ -1,40 +1,31 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
 }
-.changecontainer{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
+.changecontainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
 }
 .cardcontainer {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
 }
 .lang {
-    width: 50px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    font-size: 20px;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+.count {
+  color: white;
+  margin: 10px auto;
+}

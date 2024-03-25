@@ -1,35 +1,17 @@
 .containerouter {
   background-image: url(../../assets/image/svg/error_window_icon.svg);
-  /* background-image: url(../../assets/image/svg/logo.svg); */
-
-
   animation: animatedBack 20s linear infinite;
-  /* background-size: cover; */
-
   height: 75vh;
   display: flex;
 }
 @keyframes animatedBack {
   0% {
-    background-position:0 0;
+    background-position: 0 0;
   }
   100% {
-    background-position:-600px 600px;
+    background-position: -600px 600px;
   }
 }
-/* 
-.containerinner {
-  margin: 20px;
-  height: 100%;
-  /* border-radius: 20px; */
-  /* padding: 50px;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center; */
-  /* background-color: var(--color-secondary); */
-  /* backdrop-filter: blur(40px); */
-  /* color: white; */
-/* } */ 
 
 .textcontainer {
   display: flex;
@@ -47,7 +29,6 @@
 .error {
   border-radius: 20px;
   font-size: 12px;
-  /* background-color: var(--color-primary); */
 }
 .header {
   text-align: start;
@@ -65,11 +46,11 @@
 .link:hover {
   background-color: var(--color-primary);
   color: white;
-  transition: background-color 2s ;
+  transition: background-color 2s;
 }
 .errornumber {
   margin: 0;
   font-size: 200px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color:white;
+  color: white;
 }

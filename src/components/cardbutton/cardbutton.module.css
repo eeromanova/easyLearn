@@ -1,16 +1,19 @@
-.cardbutton{
-    width: 90px;
+.cardbutton {
+  width: 90px;
   height: 40px;
-    background-color: var(--color-primary);
-    color: white;
-    border-radius: 10px;
-    border: none;
-    font-weight: bold;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
 }
 
-.cardbutton:hover{
-    background-color: var(--color-secondary);
-
-    /* transform: scale(1.1); */
-    transition: background-color 1.5s;
+.cardbutton:hover {
+  background-color: var(--color-secondary);
+  transition: background-color 1.5s;
+}
+.cardbutton:focus {
+  background-color: var(--color-secondary);
+  transition: background-color 1.5s;
+  border: none;
 }

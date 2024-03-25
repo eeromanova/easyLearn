@@ -1,11 +1,11 @@
-import styles from './footer.module.css';
+import styles from "./footer.module.css";
 
 function Footer() {
-return (
+  return (
     <div className={styles.footer}>
       <p>© 2024 ITGirls</p>
     </div>
-)
+  );
 }
 
 export default Footer;
