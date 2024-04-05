@@ -20,6 +20,7 @@ code {
   --color-primary:rgb(43, 39, 70);
   --color-secondary:rgb(151, 148, 176);
   --color-input:rgb(255, 255, 255);
+  --color-error:rgb(255, 222, 222);
   --fontsize: 16px;
   /* --color-primary:rgb(182, 178, 207);
   --color-secondary:rgb(43, 39, 70); */

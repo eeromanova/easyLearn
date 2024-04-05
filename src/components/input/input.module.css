@@ -17,3 +17,7 @@
   background-color: var(--color-input);
   color:var(--color-primary);
 }
+.error{
+  background-color: var(--color-error);
+  border: 2px solid rgba(255, 0, 0, 0.441);
+}

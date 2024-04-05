@@ -18,22 +18,22 @@ function Tabinputfinal() {
       {input ? (
         <>
           <div className={styles.container_input}>
-            <Input status="open" placeholder="term" />
-            <Input status="open" placeholder="transcription" />
-            <Input status="open" placeholder="translation" />
+            <Input status="open" placeholder="term" nameInput="term"/>
+            <Input status="open" placeholder="transcription" nameInput="transcription" />
+            <Input status="open" placeholder="translation" nameInput="translation" />
           </div>
           <div className={styles.container_buttons}>
             <Button bgcolor="secondary" content={Save} />
             <Button
               onHandleClick={handleClick}
               bgcolor="secondary"
-              content={Cancel}
+              content={Cancel} buttonStatus={false}
             />
             <Buttonclear bgcolor="secondary" />
           </div>
         </>
       ) : (
-        <Button bgcolor="secondary" onHandleClick={handleClick} content={Add} />
+        <Button bgcolor="secondary" onHandleClick={handleClick} content={Add} buttonStatus={false}/>
       )}
     </div>
   );

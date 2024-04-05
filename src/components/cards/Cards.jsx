@@ -13,7 +13,7 @@ import Change from "../../assets/image/svg/change_icon.svg";
 function Cards() {
   const [index, setIndex] = useState(0);
   const [count, setCount] = useState(0);
-  const [newCard, setNewCard] = useState("");
+  const [newCard, setNewCard] = useState(null);
   const handleClickRight = () => {
     if (index < data.length - 1) {
       setIndex(index + 1);
@@ -46,7 +46,7 @@ function Cards() {
       <Button
         bgcolor="primary"
         onHandleClick={handleClickLeft}
-        content={Arrowleft}
+        content={Arrowleft} buttonStatus={false}
       />
     );
   }
@@ -61,7 +61,7 @@ function Cards() {
         <Button
           bgcolor="primary"
           onHandleClick={handleClickChange}
-          content={Change}
+          content={Change} buttonStatus={false}
         />
         {change ? (
           <p className={styles.lang}>eng</p>
@@ -92,7 +92,7 @@ function Cards() {
         <Button
           bgcolor="primary"
           onHandleClick={handleClickRight}
-          content={Arrowright}
+          content={Arrowright} buttonStatus={false}
         />
       </div>
       {count ? <p className={styles.count}>Checked: {count}/{data.length}</p> : ""}
