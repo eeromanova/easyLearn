@@ -10,32 +10,102 @@ import React from "react";
 
 function Tabinputfinal() {
   const [input, setInput] = useState(false);
+  const [inputTermValue, setInputTermValue] = useState("");
+  const [inputTranscriptionValue, setInputTranscriptionValue] = useState("");
+  const [inputTranslationValue, setInputTranslationValue] = useState("");
+  const [isValid, setIsValid] = useState(true);
   const handleClick = () => {
     setInput(!input);
+    setIsValid(true);
+    setInputTermValue("");
+    setInputTranscriptionValue("");
+    setInputTranslationValue("");
+  };
+  const onInputTermChange = (e) => {
+    setInputTermValue(e.target.value);
+    setIsValid(true);
+  };
+  const onInputTranscriptionChange = (e) => {
+    setInputTranscriptionValue(e.target.value);
+    setIsValid(true);
+  };
+  const onInputTranslationChange = (e) => {
+    setInputTranslationValue(e.target.value);
+    setIsValid(true);
+  };
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      inputTermValue.trim() !== "" &&
+      inputTranscriptionValue.trim() !== "" &&
+      inputTranslationValue.trim() !== ""
+    ) {
+      console.log([
+        inputTermValue,
+        inputTranscriptionValue,
+        inputTranslationValue,
+      ]);
+      setInputTermValue("");
+      setInputTranscriptionValue("");
+      setInputTranslationValue("");
+      setInput(false);
+    } else {
+      setIsValid(false);
+    }
   };
   return (
-    <div className={styles.container}>
-      {input ? (
-        <>
-          <div className={styles.container_input}>
-            <Input status="open" placeholder="term" nameInput="term"/>
-            <Input status="open" placeholder="transcription" nameInput="transcription" />
-            <Input status="open" placeholder="translation" nameInput="translation" />
-          </div>
-          <div className={styles.container_buttons}>
-            <Button bgcolor="secondary" content={Save} />
-            <Button
-              onHandleClick={handleClick}
-              bgcolor="secondary"
-              content={Cancel} buttonStatus={false}
-            />
-            <Buttonclear bgcolor="secondary" />
-          </div>
-        </>
-      ) : (
-        <Button bgcolor="secondary" onHandleClick={handleClick} content={Add} buttonStatus={false}/>
-      )}
-    </div>
+    <>
+      <form onSubmit={onHandleSubmit} className={styles.container}>
+        {input ? (
+          <>
+            <div className={styles.container_input}>
+              <Input
+                status="open"
+                placeholder="term"
+                nameInput="term"
+                content={inputTermValue}
+                onHandleChange={onInputTermChange}
+              />
+              <Input
+                status="open"
+                placeholder="transcription"
+                nameInput="transcription"
+                content={inputTranscriptionValue}
+                onHandleChange={onInputTranscriptionChange}
+              />
+              <Input
+                status="open"
+                placeholder="translation"
+                nameInput="translation"
+                content={inputTranslationValue}
+                onHandleChange={onInputTranslationChange}
+              />
+            </div>
+            <div className={styles.container_buttons}>
+              <Button bgcolor="secondary" content={Save} />
+              <Button
+                onHandleClick={handleClick}
+                bgcolor="secondary"
+                content={Cancel}
+                buttonStatus={false}
+              />
+              <Buttonclear bgcolor="secondary" />
+            </div>
+          </>
+        ) : (
+          <Button
+            bgcolor="secondary"
+            onHandleClick={handleClick}
+            content={Add}
+            buttonStatus={false}
+          />
+        )}
+        {!isValid && (
+          <div className={styles.error}>Please, fill all the fields</div>
+        )}
+      </form>
+      {/* {!isValid && <div className={styles.error}>Please, fill all the fields</div>} */}
+    </>
   );
 }
 

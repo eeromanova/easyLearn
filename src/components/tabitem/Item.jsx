@@ -8,7 +8,7 @@ import Delete from "../../assets/image/svg/delete_icon.svg";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
 import Buttonclear from "../button/Buttonclear";
-import {checkInput} from "../../hooks/check-input";
+// import {checkInput} from "../../hooks/check-input";
 
 function Item(props) {
   const { term, transcription, translation } = props;
@@ -16,6 +16,7 @@ function Item(props) {
   let changing = true;
   const [change, setChange] = useState(false);
   const [buttonStatus, setButtonStatus] = useState(false);
+  const [inputTermLeft, setInputTermLeft] = useState("false");
   const handleClick = () => {
     setChange(!change);
   };
@@ -31,7 +32,7 @@ function Item(props) {
   //   status: status,
   // } = checkInput((value) => {
   //   return value.trim()!=='';
-  // }); 
+  // });
 
   const [valueTerm, setValueTerm] = useState(term);
   const [valueTranscription, setvalueTranscription] = useState(transcription);
@@ -70,13 +71,45 @@ function Item(props) {
     setvalueTranscription(transcription);
     setvalueTranslation(translation);
   }, [change]);
-  const onHandleError = (e) => {
-    if (e.target.value === "") {
+  const onHandleErrorTerm = () => {
+    if (valueTerm === "") {
+      setInputTermLeft("true");
+      console.log(inputTermLeft);
+    }
+    if (inputTermLeft) {
       status = "error";
       console.log(status);
-    } else {
-      status = "open"
     }
+  };
+
+  //   if (e.target.value === "" && inputLeft) {
+  //     status = "error";
+  //     console.log(status);
+  //   }
+  //   // else {
+  //   //   status = "open"
+  //   // }
+  // };
+  const onHandleErrorTranscription = (e) => {
+
+
+    e.target.value === "" ? (status = "error") : (status = "open");
+
+    // if (e.target.value === "") {
+    //   status = "error";
+    //   console.log(status);
+    // } else {
+    //   status = "open"
+    // }
+  };
+  const onHandleErrorTranslation = (e) => {
+    e.target.value === "" ? (status = "error") : (status = "open");
+    // if (e.target.value === "") {
+    //   status = "error";
+    //   console.log(status);
+    // } else {
+    //   status = "open"
+    // }
   };
 
   return (
@@ -90,7 +123,7 @@ function Item(props) {
           onHandleChange={onHandleChangeTerm}
           onHandleFocus={onHandleFocus}
           // error={error}
-          onHandleError={onHandleError}
+          onHandleError={onHandleErrorTerm}
         />
         <Input
           status={status}
@@ -100,7 +133,7 @@ function Item(props) {
           onHandleChange={onHandleChangeTranscription}
           onHandleFocus={onHandleFocus}
           // error={error}
-          onHandleError={onHandleError}
+          onHandleError={onHandleErrorTranscription}
         />
         <Input
           status={status}
@@ -110,7 +143,7 @@ function Item(props) {
           onHandleChange={onHandleChangeTranslation}
           onHandleFocus={onHandleFocus}
           // error={error}
-          onHandleError={onHandleError}
+          onHandleError={onHandleErrorTranslation}
         />
       </form>
       <div className={styles.container_buttons}>
