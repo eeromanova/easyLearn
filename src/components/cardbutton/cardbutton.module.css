@@ -6,6 +6,7 @@
   border-radius: 10px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .cardbutton:hover {
