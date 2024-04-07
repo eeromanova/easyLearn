@@ -13,6 +13,10 @@ function Tabinputfinal() {
   const [inputTermValue, setInputTermValue] = useState("");
   const [inputTranscriptionValue, setInputTranscriptionValue] = useState("");
   const [inputTranslationValue, setInputTranslationValue] = useState("");
+  const [statusTerm, setStatusTerm] = useState("open"); 
+  //новое состояние, показывает статус input'a Term. На данный момент есть два статуса в верхнем инпуте: open, error
+  const [statusTranscription, setStatusTranscription] = useState("open");
+  const [statusTranslation, setStatusTranslation] = useState("open");
   const [isValid, setIsValid] = useState(true);
   const handleClick = () => {
     setInput(!input);
@@ -20,18 +24,25 @@ function Tabinputfinal() {
     setInputTermValue("");
     setInputTranscriptionValue("");
     setInputTranslationValue("");
+    setStatusTerm("open");
+    setStatusTranscription("open");
+    setStatusTranslation("open");
+
   };
   const onInputTermChange = (e) => {
     setInputTermValue(e.target.value);
     setIsValid(true);
+    setStatusTerm("open");
   };
   const onInputTranscriptionChange = (e) => {
     setInputTranscriptionValue(e.target.value);
     setIsValid(true);
+    setStatusTranscription("open");
   };
   const onInputTranslationChange = (e) => {
     setInputTranslationValue(e.target.value);
     setIsValid(true);
+    setStatusTranslation("open");
   };
   const onHandleSubmit = (e) => {
     e.preventDefault();
@@ -51,6 +62,9 @@ function Tabinputfinal() {
       setInput(false);
     } else {
       setIsValid(false);
+      if (inputTermValue.trim() === "") {setStatusTerm("error");}
+      if (inputTranscriptionValue.trim() === "") {setStatusTranscription("error");}
+      if (inputTranslationValue.trim() === "") {setStatusTranslation("error");}
     }
   };
   return (
@@ -60,21 +74,21 @@ function Tabinputfinal() {
           <>
             <div className={styles.container_input}>
               <Input
-                status="open"
+                status={statusTerm}
                 placeholder="term"
                 nameInput="term"
                 content={inputTermValue}
                 onHandleChange={onInputTermChange}
               />
               <Input
-                status="open"
+                status={statusTranscription}
                 placeholder="transcription"
                 nameInput="transcription"
                 content={inputTranscriptionValue}
                 onHandleChange={onInputTranscriptionChange}
               />
               <Input
-                status="open"
+                status={statusTranslation}
                 placeholder="translation"
                 nameInput="translation"
                 content={inputTranslationValue}

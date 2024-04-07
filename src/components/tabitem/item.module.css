@@ -26,4 +26,13 @@
   color: rgb(154, 45, 45);
   font-size: 16px;
   font-weight: bold;
+  animation: animate 1.5s forwards;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
