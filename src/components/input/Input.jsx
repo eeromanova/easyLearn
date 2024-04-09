@@ -4,9 +4,7 @@ import styles from "./input.module.css";
 
 function Input(props) {
   const { content, nameInput, placeholder, status, changing, onHandleChange, onHandleFocus} = props;
-  // const classInput = `${styles.input} ${styles[status]} ${styles[error]}`;
   const classInput = `${styles.input} ${styles[status]}`;
-  // console.log(classInput);
 
   return (
     <input

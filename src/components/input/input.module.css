@@ -7,7 +7,6 @@
   font-weight: bold;
   border: none;
   text-align: center;
-
 }
 .saved{
   background-color: var(--color-secondary);
@@ -21,3 +20,18 @@
   background-color: var(--color-error);
   border: 2px solid rgba(255, 0, 0, 0.441);
 }
+@media screen and (max-width: 768px) {
+  .input{
+    width: 150px;
+  }
+}
+@media screen and (max-width: 567px) {
+  .input{
+    width: 100px;
+  }
+} 
+@media screen and (max-width: 375px) {
+  .input{
+    width: 80px;
+  }
+} 

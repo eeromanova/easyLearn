@@ -37,3 +37,8 @@
 .secondary {
   background-color: var(--color-secondary);
 }
+@media screen and (max-width: 900px) {
+  .button {
+    width: 40px;
+  }
+}

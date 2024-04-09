@@ -36,3 +36,12 @@
     opacity: 1;
   }
 }
+@media screen and (max-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container_buttons{
+    justify-self: flex-end;
+  }
+}
