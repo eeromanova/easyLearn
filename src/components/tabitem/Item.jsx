@@ -93,8 +93,8 @@ function Item(props) {
   }, [change]);
 
   return (
-    <div className={styles.container}>
-      <form className={styles.container_input}>
+    <form className={styles.container}>
+      <div className={styles.container_input}>
         <Input
           status={statusTerm}
           nameInput="term"
@@ -119,7 +119,7 @@ function Item(props) {
           onHandleChange={onHandleChangeTranslation}
           onHandleFocus={onHandleFocus}
         />
-      </form>
+      </div>
       <div className={styles.container_buttons}>
         {change ? (
           <Button
@@ -147,7 +147,7 @@ function Item(props) {
         )}
         <Button bgcolor="secondary" content={Delete} buttonStatus={false} />
       </div>
-    </div>
+    </form>
   );
 }
 export default Item;

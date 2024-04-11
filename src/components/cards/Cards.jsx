@@ -1,21 +1,32 @@
 import styles from "./cards.module.css";
-// import Card from "../card/Card";
 import Button from "../button/Button";
 import Arrowleft from "../../assets/image/svg/arrow_left.svg";
 import Arrowright from "../../assets/image/svg/arrow_right.svg";
-import data from "../../assets/data/data.json";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Buttonclear from "../button/Buttonclear";
 import Cardchange from "../card/Cardchange";
 import Cardchangeruen from "../card/Cardchangeruen";
 import Change from "../../assets/image/svg/change_icon.svg";
+import { WordsContext } from "../WordsContextProvider";
+import Loader from "../loader/Loader";
 
 function Cards() {
+  const { words, loading, getWords } = useContext(WordsContext);
+
+  const [wordsUsed, setWordsUsed] = useState([]);
+
+  useEffect(() => {
+    getWords();
+    setWordsUsed(words);
+  }, [words]);
+
+  console.log(wordsUsed);
+
   const [index, setIndex] = useState(0);
   const [count, setCount] = useState(0);
   const [newCard, setNewCard] = useState(null);
   const handleClickRight = () => {
-    if (index < data.length - 1) {
+    if (index < wordsUsed.length - 1) {
       setIndex(index + 1);
       setNewCard(index);
     } else {
@@ -46,12 +57,14 @@ function Cards() {
       <Button
         bgcolor="primary"
         onHandleClick={handleClickLeft}
-        content={Arrowleft} buttonStatus={false}
+        content={Arrowleft}
+        buttonStatus={false}
       />
     );
   }
   return (
     <div className={styles.container}>
+      {loading && <Loader />}
       <div className={styles.changecontainer}>
         {change ? (
           <p className={styles.lang}>ru</p>
@@ -61,7 +74,8 @@ function Cards() {
         <Button
           bgcolor="primary"
           onHandleClick={handleClickChange}
-          content={Change} buttonStatus={false}
+          content={Change}
+          buttonStatus={false}
         />
         {change ? (
           <p className={styles.lang}>eng</p>
@@ -73,17 +87,17 @@ function Cards() {
         {buttonleft}
         {change ? (
           <Cardchangeruen
-            term={data[index].russian}
-            transcription={data[index].transcription}
-            translation={data[index].english}
+            term={wordsUsed[index].russian}
+            transcription={wordsUsed[index].transcription}
+            translation={wordsUsed[index].english}
             onHandleClick={handleCount}
             newCard={newCard}
           />
         ) : (
           <Cardchange
-            term={data[index].english}
-            transcription={data[index].transcription}
-            translation={data[index].russian}
+            term={wordsUsed[index].english}
+            transcription={wordsUsed[index].transcription}
+            translation={wordsUsed[index].russian}
             onHandleClick={handleCount}
             newCard={newCard}
           />
@@ -92,11 +106,22 @@ function Cards() {
         <Button
           bgcolor="primary"
           onHandleClick={handleClickRight}
-          content={Arrowright} buttonStatus={false}
+          content={Arrowright}
+          buttonStatus={false}
         />
       </div>
-      {count ? <p className={styles.count}>Checked: {count}/{data.length}</p> : ""}
-      {count===data.length? <p className={styles.info}>You have checked all the words</p> : ""}
+      {count ? (
+        <p className={styles.count}>
+          Checked: {count}/{wordsUsed.length}
+        </p>
+      ) : (
+        ""
+      )}
+      {count === wordsUsed.length ? (
+        <p className={styles.info}>You have checked all the words</p>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
