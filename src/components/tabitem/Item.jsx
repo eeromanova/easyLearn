@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./item.module.css";
 import Input from "../input/Input";
 import Button from "../button/Button";
@@ -8,9 +8,11 @@ import Delete from "../../assets/image/svg/delete_icon.svg";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
 import Buttonclear from "../button/Buttonclear";
+import { WordsContext } from "../WordsContextProvider";
 // import {checkInput} from "../../hooks/check-input";
 
 function Item(props) {
+  const {words}=useContext(WordsContext);
   const { term, transcription, translation } = props;
   const [statusTerm, setStatusTerm] = useState("saved"); 
   //новое состояние, показывает статус input'a Term. На данный момент есть три статуса: saved, open, error
@@ -19,6 +21,9 @@ function Item(props) {
   let changing = true;
   const [change, setChange] = useState(false);
   const [buttonStatus, setButtonStatus] = useState(false);
+  const [checkTerm, setcheckTerm] = useState(false);
+  const [checkTranscription, setcheckTranscription] = useState(false);
+  const [checkTranslation, setcheckTranslation] = useState(false);
   const handleClick = () => {
     setChange(!change);
     if (change) {
@@ -93,8 +98,8 @@ function Item(props) {
   }, [change]);
 
   return (
-    <div className={styles.container}>
-      <form className={styles.container_input}>
+    <form className={styles.container}>
+      <div className={styles.container_input}>
         <Input
           status={statusTerm}
           nameInput="term"
@@ -119,7 +124,7 @@ function Item(props) {
           onHandleChange={onHandleChangeTranslation}
           onHandleFocus={onHandleFocus}
         />
-      </form>
+      </div>
       <div className={styles.container_buttons}>
         {change ? (
           <Button
@@ -147,7 +152,7 @@ function Item(props) {
         )}
         <Button bgcolor="secondary" content={Delete} buttonStatus={false} />
       </div>
-    </div>
+    </form>
   );
 }
 export default Item;
