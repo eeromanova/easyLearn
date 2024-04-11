@@ -82,12 +82,6 @@ function Tabinputfinal() {
       postTranslation = inputTranslationValue.trim().toLowerCase();
     }
   };
-  // postTerm = inputTermValue.trim().toLowerCase();
-  // postTranscription = `[${inputTranscriptionValue
-  //   .replace(/[\]\[]/g, "")
-  //   .toLowerCase()}]`;
-  // postTranslation = inputTranslationValue.trim().toLowerCase();
-
   const postData = async (url, id, english, transcription, russian) => {
     const response = await fetch(url, {
       method: "POST",
@@ -111,11 +105,6 @@ function Tabinputfinal() {
     onHandleCheckTranscription();
     onHandleCheckTranslation();
     if (postTerm !== "" && postTranscription !== "" && postTranslation !== "") {
-      //       if (
-      //   inputTermValue.trim() !== "" &&
-      //   inputTranscriptionValue.trim() !== "" &&
-      //   inputTranslationValue.trim() !== ""
-      // ) {
       postData(
         "/api/words/add",
         words.length + 1,
@@ -131,7 +120,6 @@ function Tabinputfinal() {
       setcheckTranscription(false);
       setcheckTranslation(false);
     } else {
-      // setIsValid(false);
       if (inputTermValue.trim() === "") {
         setStatusTerm("error");
         setIsValid(false);
@@ -183,12 +171,15 @@ function Tabinputfinal() {
             />
             <Buttonclear bgcolor="secondary" />
           </div>
+          <div className={styles.error}>
           {!isValid && (
-            <div className={styles.error}>Please, fill all the fields</div>
+            <div >Please, fill all the fields</div>
           )}
           {(checkTerm || checkTranscription || checkTranslation) && (
-            <div className={styles.error}>Only letters, please</div>
+            <div>Only letters, please</div>
           )}
+          </div>
+
         </form>
       ) : (
         <div className={styles.addButton}>
