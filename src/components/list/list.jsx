@@ -3,6 +3,7 @@ import data from "../../assets/data/data.json";
 import Item from "../tabitem/Item";
 import styles from "./list.module.css";
 import Tabinputfinal from "../tabitem/Tabinputfinal";
+import MainInput from "../tabitem/MainInput";
 import { WordsContext } from "../WordsContextProvider";
 import Loader from "../loader/Loader";
 
@@ -14,12 +15,13 @@ function List() {
   useEffect(() => {
     getWords();
     setWordsUsed(words);
-  }, [words]);
+  }, [loading]);
 
   console.log(wordsUsed);
   return (
     <div className={styles.container}>
       <Tabinputfinal />
+      <MainInput />
       {loading && <Loader />}
       {wordsUsed.map((item) => (
         <Item
@@ -34,11 +36,3 @@ function List() {
 }
 export default List;
 
-/* {data.map((item) => (
-      <Item
-        key={item.id}
-        term={item.english}
-        transcription={item.transcription}
-        translation={item.russian}
-      />
-    ))} */

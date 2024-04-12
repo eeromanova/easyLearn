@@ -14,17 +14,21 @@ function Cards() {
   const { words, loading, getWords } = useContext(WordsContext);
 
   const [wordsUsed, setWordsUsed] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [count, setCount] = useState(0);
+  const [newCard, setNewCard] = useState(null);
+  const [change, setChange] = useState(false);
 
   useEffect(() => {
     getWords();
     setWordsUsed(words);
-  }, [words]);
+  }, [loading]);
 
   console.log(wordsUsed);
 
-  const [index, setIndex] = useState(0);
-  const [count, setCount] = useState(0);
-  const [newCard, setNewCard] = useState(null);
+  if (loading || wordsUsed.length === 0) {
+    return <Loader />;
+  }
   const handleClickRight = () => {
     if (index < wordsUsed.length - 1) {
       setIndex(index + 1);
@@ -43,7 +47,7 @@ function Cards() {
       setNewCard(index);
     }
   };
-  const [change, setChange] = useState(false);
+
   const handleClickChange = () => {
     setChange(!change);
   };
