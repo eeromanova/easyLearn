@@ -24,7 +24,7 @@ function WordsProvider(props) {
       setLoading(false);
     }
   };
-useEffect(() => {getWords()} , []);
+// useEffect(() => {getWords()} , []);
   return (
     <WordsContext.Provider value={{ words, loading, getWords }}>
       {props.children}
