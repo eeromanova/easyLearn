@@ -5,6 +5,7 @@ import styles from "./list.module.css";
 import Tabinputfinal from "../tabitem/Tabinputfinal";
 import { WordsContext } from "../WordsContextProvider";
 import Loader from "../loader/Loader";
+import ItemNew from "../tabitem/ItemNew";
 
 function List() {
   const { words, loading, getWords } = useContext(WordsContext);
@@ -14,13 +15,21 @@ function List() {
   useEffect(() => {
     getWords();
     setWordsUsed(words);
-  }, [words]);
+  }, [loading]);
 
   console.log(wordsUsed);
   return (
     <div className={styles.container}>
       <Tabinputfinal />
       {loading && <Loader />}
+      {wordsUsed.map((item) => (
+        <ItemNew
+          key={item.id}
+          term={item.english}
+          transcription={item.transcription}
+          translation={item.russian}
+        />
+      ))}
       {wordsUsed.map((item) => (
         <Item
           key={item.id}
@@ -29,6 +38,7 @@ function List() {
           translation={item.russian}
         />
       ))}
+
     </div>
   );
 }

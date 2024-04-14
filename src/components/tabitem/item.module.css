@@ -27,8 +27,8 @@
   width: 200px;
   justify-self: center;
   background-color: var(--color-secondary);
-  border-left: 2px solid rgba(255, 0, 0, 0.441);
-  border-right: 2px solid rgba(255, 0, 0, 0.441);
+  /* border-left: 2px solid rgba(255, 0, 0, 0.441);
+  border-right: 2px solid rgba(255, 0, 0, 0.441); */
   border-radius: 10px;
   color: rgb(154, 45, 45);
   font-size: 16px;
