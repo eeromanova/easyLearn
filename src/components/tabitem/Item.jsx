@@ -13,7 +13,7 @@ import { WordsContext } from "../WordsContextProvider";
 
 function Item(props) {
   const {words}=useContext(WordsContext);
-  const { term, transcription, translation } = props;
+  const { term, transcription, translation, handleChange } = props;
   const [statusTerm, setStatusTerm] = useState("saved"); 
   //новое состояние, показывает статус input'a Term. На данный момент есть три статуса: saved, open, error
   const [statusTranscription, setStatusTranscription] = useState("saved");
@@ -27,6 +27,7 @@ function Item(props) {
   const handleClick = () => {
     setChange(!change);
     if (change) {
+      handleChange('true');
       setStatusTerm("saved");
       setStatusTranscription("saved");
       setStatusTranslation("saved");
@@ -91,11 +92,11 @@ function Item(props) {
   };
 
 
-  useEffect(() => {
-    setValueTerm(term);
-    setvalueTranscription(transcription);
-    setvalueTranslation(translation);
-  }, [change]);
+  // useEffect(() => {
+  //   setValueTerm(term);
+  //   setvalueTranscription(transcription);
+  //   setvalueTranslation(translation);
+  // }, [change]);
 
   return (
     <form className={styles.container}>
