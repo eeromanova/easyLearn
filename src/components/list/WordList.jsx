@@ -7,23 +7,16 @@ import { WordsContext } from "../WordsContextProvider";
 import Loader from "../loader/Loader";
 import ItemNew from "../tabitem/ItemNew";
 
-function List() {
+function WordList() {
   const { words, loading, getWords } = useContext(WordsContext);
 
   const [wordsUsed, setWordsUsed] = useState([]);
 
-  const [change, setChange] = useState(false);
-
-  const getStatus=(status)=>{
-    setChange(status);
-    console.log(change);
-  }
 
   useEffect(() => {
-    if (change) {return;} else {
     getWords();
-    setWordsUsed(words)};
-  }, [loading, change]);
+    setWordsUsed(words);
+  }, [loading]);
 
 
   console.log(wordsUsed);
@@ -45,14 +38,14 @@ function List() {
           term={item.english}
           transcription={item.transcription}
           translation={item.russian}
-          handleChange={getStatus}
+          id={item.id}
         />
       ))}
 
     </div>
   );
 }
-export default List;
+export default WordList;
 
 /* {data.map((item) => (
       <Item
