@@ -12,30 +12,40 @@ function List() {
 
   const [wordsUsed, setWordsUsed] = useState([]);
 
+  const [change, setChange] = useState(false);
+
+  const getStatus=(status)=>{
+    setChange(status);
+    console.log(change);
+  }
+
   useEffect(() => {
+    if (change) {return;} else {
     getWords();
-    setWordsUsed(words);
-  }, [loading]);
+    setWordsUsed(words)};
+  }, [loading, change]);
+
 
   console.log(wordsUsed);
   return (
     <div className={styles.container}>
       <Tabinputfinal />
       {loading && <Loader />}
-      {wordsUsed.map((item) => (
+      {/* {wordsUsed.map((item) => (
         <ItemNew
           key={item.id}
           term={item.english}
           transcription={item.transcription}
           translation={item.russian}
         />
-      ))}
+      ))} */}
       {wordsUsed.map((item) => (
         <Item
           key={item.id}
           term={item.english}
           transcription={item.transcription}
           translation={item.russian}
+          handleChange={getStatus}
         />
       ))}
 
