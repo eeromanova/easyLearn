@@ -7,11 +7,11 @@ import ButtonClear from "../button/ButtonClear";
 import CardChange from "../card/CardChange";
 import CardChangeRuEn from "../card/CardChangeRuEn";
 import Change from "../../assets/image/svg/change_icon.svg";
-import { WordsContext } from "../WordsContextProvider";
 import Loader from "../loader/Loader";
+import { observer, inject } from 'mobx-react';
 
-function Cards() {
-  const { words, loading, getWords } = useContext(WordsContext);
+const Cards=inject(['wordsStore'])(observer(({ wordsStore }) => {
+
 
   const [wordsUsed, setWordsUsed] = useState([]);
   const [index, setIndex] = useState(0);
@@ -20,12 +20,12 @@ function Cards() {
   const [change, setChange] = useState(false);
 
   useEffect(() => {
-    getWords();
-    setWordsUsed(words);
-  }, [loading]);
+    wordsStore.getWords();
+    setWordsUsed(wordsStore.words);
+  }, [wordsStore.isLoading]);
 
   console.log(wordsUsed);
-  if (loading || wordsUsed.length === 0) {
+  if (wordsStore.isLoading || wordsUsed.length === 0) {
     return <Loader />;
   }
 
@@ -69,7 +69,7 @@ function Cards() {
   }
   return (
     <div className={styles.container}>
-      {loading && <Loader />}
+      {wordsStore.isLoading && <Loader />}
       <div className={styles.changecontainer}>
         {change ? (
           <p className={styles.lang}>ru</p>
@@ -129,5 +129,6 @@ function Cards() {
       )}
     </div>
   );
-}
+}));
+
 export default Cards;

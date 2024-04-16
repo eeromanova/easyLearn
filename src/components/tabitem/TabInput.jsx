@@ -7,10 +7,10 @@ import ButtonClear from "../button/ButtonClear";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
 import React from "react";
-import { WordsContext } from "../WordsContextProvider";
+import { observer, inject } from 'mobx-react';
 
-function TabInput() {
-  const { words } = useContext(WordsContext);
+
+const TabInput=inject(['wordsStore'])(observer(({ wordsStore }) => {
   const [checkTerm, setcheckTerm] = useState(false);
   const [checkTranscription, setcheckTranscription] = useState(false);
   const [checkTranslation, setcheckTranslation] = useState(false);
@@ -105,14 +105,9 @@ function TabInput() {
     onHandleCheckTranscription();
     onHandleCheckTranslation();
     if (postTerm !== "" && postTranscription !== "" && postTranslation !== "") {
-      postData(
-        "/api/words/add",
-        words.length + 1,
-        postTerm,
-        postTranscription,
-        postTranslation
-      );
+      wordsStore.addWord(postTerm, postTranscription, postTranslation);
       window.location.reload();
+  
       // setInputTermValue("");
       // setInputTranscriptionValue("");
       // setInputTranslationValue("");
@@ -195,6 +190,7 @@ function TabInput() {
     </>
 
   );
-}
+
+}));
 
 export default TabInput;
