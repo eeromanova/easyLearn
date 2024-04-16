@@ -2,9 +2,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./card.module.css";
-import Cardbutton from "../cardbutton/Cardbutton";
+import CardButton from "../cardbutton/CardButton";
 
-function Cardchange(props) {
+function CardChangeRuEn(props) {
   const { term, transcription, translation, onHandleClick, newCard } = props;
   const [clicked, setClicked] = useState(false);
   let stylefront = `${styles.containerfront} ${styles.containerfront_unclick}`;
@@ -31,7 +31,7 @@ function Cardchange(props) {
         <div className={styles.container_words}>
           <p className={styles.term}>{term}</p>
         </div>
-        <Cardbutton onHandleClick={handleClick} newCard={newCard} />
+        <CardButton onHandleClick={handleClick} newCard={newCard} />
       </div>
       <div className={styleback}>
         <div className={styles.container_words}>
@@ -43,4 +43,4 @@ function Cardchange(props) {
     </div>
   );
 }
-export default Cardchange;
+export default CardChangeRuEn;

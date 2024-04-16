@@ -2,7 +2,7 @@ import styles from "./cardbutton.module.css";
 import React from "react";
 import { useRef, useEffect } from "react";
 
-function Cardbutton(props) {
+function CardButton(props) {
   const buttonFocus = useRef(null);
 
   useEffect(() => {
@@ -19,4 +19,4 @@ function Cardbutton(props) {
     </button>
   );
 }
-export default Cardbutton;
+export default CardButton;

@@ -3,13 +3,13 @@ import Button from "../button/Button";
 import { useState, useContext } from "react";
 import Add from "../../assets/image/svg/add_icon.svg";
 import Input from "../input/Input";
-import Buttonclear from "../button/Buttonclear";
+import ButtonClear from "../button/ButtonClear";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
 import React from "react";
 import { WordsContext } from "../WordsContextProvider";
 
-function Tabinputfinal() {
+function TabInput() {
   const { words } = useContext(WordsContext);
   const [checkTerm, setcheckTerm] = useState(false);
   const [checkTranscription, setcheckTranscription] = useState(false);
@@ -170,7 +170,7 @@ function Tabinputfinal() {
               content={Cancel}
               buttonStatus={false}
             />
-            <Buttonclear bgcolor="secondary" />
+            <ButtonClear bgcolor="secondary" />
           </div>
           <div className={styles.error}>
           {!isValid && (
@@ -193,57 +193,8 @@ function Tabinputfinal() {
         </div>
       )}
     </>
-    // <form onSubmit={onHandleSubmit} className={styles.container}>
-    //   {input ? (
-    //     <>
-    //       <div className={styles.container_input}>
-    //         <Input
-    //           status={statusTerm}
-    //           placeholder="term"
-    //           nameInput="term"
-    //           content={inputTermValue}
-    //           onHandleChange={onInputTermChange}
-    //         />
-    //         <Input
-    //           status={statusTranscription}
-    //           placeholder="[transcription]"
-    //           nameInput="transcription"
-    //           content={inputTranscriptionValue}
-    //           onHandleChange={onInputTranscriptionChange}
-    //         />
-    //         <Input
-    //           status={statusTranslation}
-    //           placeholder="translation"
-    //           nameInput="translation"
-    //           content={inputTranslationValue}
-    //           onHandleChange={onInputTranslationChange}
-    //         />
-    //       </div>
-    //       <div className={styles.container_buttons}>
-    //         <Button type="submit" bgcolor="secondary" content={Save} />
-    //         <Button
-    //           onHandleClick={handleClick}
-    //           bgcolor="secondary"
-    //           content={Cancel}
-    //           buttonStatus={false}
-    //         />
-    //         <Buttonclear bgcolor="secondary" />
-    //       </div>
-    //     </>
-    //   ) : (
-    //     <Button
-    //       bgcolor="secondary"
-    //       onHandleClick={handleClick}
-    //       content={Add}
-    //       buttonStatus={false}
-    //     />
-    //   )}
-    //   {!isValid && (
-    //     <div className={styles.error}>Please, fill all the fields</div>
-    //   )}
-    //   {(checkTerm || checkTranscription || checkTranslation)&& <div className={styles.error}>Only letters, please</div>}
-    // </form>
+
   );
 }
 
-export default Tabinputfinal;
+export default TabInput;

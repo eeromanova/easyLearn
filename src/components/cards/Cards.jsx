@@ -3,9 +3,9 @@ import Button from "../button/Button";
 import Arrowleft from "../../assets/image/svg/arrow_left.svg";
 import Arrowright from "../../assets/image/svg/arrow_right.svg";
 import { useState, useContext, useEffect } from "react";
-import Buttonclear from "../button/Buttonclear";
-import Cardchange from "../card/Cardchange";
-import Cardchangeruen from "../card/Cardchangeruen";
+import ButtonClear from "../button/ButtonClear";
+import CardChange from "../card/CardChange";
+import CardChangeRuEn from "../card/CardChangeRuEn";
 import Change from "../../assets/image/svg/change_icon.svg";
 import { WordsContext } from "../WordsContextProvider";
 import Loader from "../loader/Loader";
@@ -56,7 +56,7 @@ function Cards() {
     setCount(numbers);
   };
 
-  let buttonleft = <Buttonclear bgcolor="primary" />;
+  let buttonleft = <ButtonClear bgcolor="primary" />;
   if (index > 0) {
     buttonleft = (
       <Button
@@ -91,7 +91,7 @@ function Cards() {
       <div className={styles.cardcontainer}>
         {buttonleft}
         {change ? (
-          <Cardchangeruen
+          <CardChangeRuEn
             term={wordsUsed[index].russian}
             transcription={wordsUsed[index].transcription}
             translation={wordsUsed[index].english}
@@ -99,7 +99,7 @@ function Cards() {
             newCard={newCard}
           />
         ) : (
-          <Cardchange
+          <CardChange
             term={wordsUsed[index].english}
             transcription={wordsUsed[index].transcription}
             translation={wordsUsed[index].russian}

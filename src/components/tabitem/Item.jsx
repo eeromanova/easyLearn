@@ -7,7 +7,7 @@ import Edit from "../../assets/image/svg/edit_icon.svg";
 import Delete from "../../assets/image/svg/delete_icon.svg";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
-import Buttonclear from "../button/Buttonclear";
+import ButtonClear from "../button/ButtonClear";
 // import {checkInput} from "../../hooks/check-input";
 
 function Item(props) {
@@ -258,7 +258,7 @@ function Item(props) {
             type="submit"
           />
         ) : (
-          <Buttonclear bgcolor="secondary" />
+          <ButtonClear bgcolor="secondary" />
         )}
         {change ? (
           <Button
