@@ -7,7 +7,7 @@ import Edit from "../../assets/image/svg/edit_icon.svg";
 import Delete from "../../assets/image/svg/delete_icon.svg";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
-import ButtonClear from "../button/ButtonClear";
+import ButtonClear from "../button/ClearButton";
 import { observer, inject } from "mobx-react";
 
 // import {checkInput} from "../../hooks/check-input";

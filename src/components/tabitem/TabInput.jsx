@@ -3,7 +3,7 @@ import Button from "../button/Button";
 import { useState, useContext } from "react";
 import Add from "../../assets/image/svg/add_icon.svg";
 import Input from "../input/Input";
-import ButtonClear from "../button/ButtonClear";
+import ButtonClear from "../button/ClearButton";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
 import React from "react";
