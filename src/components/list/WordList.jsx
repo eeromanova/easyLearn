@@ -1,28 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Item from "../tabitem/Item";
 import styles from "./list.module.css";
 import TabInput from "../tabitem/TabInput";
-import { WordsContext } from "../WordsContextProvider";
 import Loader from "../loader/Loader";
+import { observer, inject } from 'mobx-react';
 // import ItemNew from "../tabitem/ItemNew";
 
-function WordList() {
-  const { words, loading, getWords } = useContext(WordsContext);
+const WordList=inject(['wordsStore'])(observer(({ wordsStore }) => {
 
   const [wordsUsed, setWordsUsed] = useState([]);
 
 
   useEffect(() => {
-    getWords();
-    setWordsUsed(words);
-  }, [loading]);
+    wordsStore.getWords();
+    setWordsUsed(wordsStore.words);
+  }, [wordsStore.isLoading]);
 
 
-  console.log(wordsUsed);
+
   return (
     <div className={styles.container}>
       <TabInput />
-      {loading && <Loader />}
+      {wordsStore.isLoading && <Loader />}
       {/* {wordsUsed.map((item) => (
         <ItemNew
           key={item.id}
@@ -43,5 +42,6 @@ function WordList() {
 
     </div>
   );
-}
+}));
+
 export default WordList;

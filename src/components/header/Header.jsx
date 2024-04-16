@@ -1,9 +1,9 @@
-import styles from "./headermain.module.css";
+import styles from "./header.module.css";
 import Logo from "../../assets/image/svg/logo.svg";
 import Menu from "../menu/Menu";
 import { Link } from "react-router-dom";
 
-function HeaderMain() {
+function Header() {
   return (
     <div className={styles.container}>
       <Link className={styles.logolink} to="/">
@@ -19,4 +19,4 @@ function HeaderMain() {
   );
 }
 
-export default HeaderMain;
+export default Header;

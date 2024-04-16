@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./card.module.css";
-import CardButton from "../cardbutton/CardButton";
+import CardButton from "../cardbutton/ButtonCard";
 
 function CardChange(props) {
   const { term, transcription, translation, onHandleClick, newCard } = props;
