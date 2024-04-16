@@ -112,13 +112,14 @@ function Tabinputfinal() {
         postTranscription,
         postTranslation
       );
-      setInputTermValue("");
-      setInputTranscriptionValue("");
-      setInputTranslationValue("");
-      setInput(false);
-      setcheckTerm(false);
-      setcheckTranscription(false);
-      setcheckTranslation(false);
+      window.location.reload();
+      // setInputTermValue("");
+      // setInputTranscriptionValue("");
+      // setInputTranslationValue("");
+      // setInput(false);
+      // setcheckTerm(false);
+      // setcheckTranscription(false);
+      // setcheckTranslation(false);
     } else {
       if (inputTermValue.trim() === "") {
         setStatusTerm("error");
