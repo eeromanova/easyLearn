@@ -1,8 +1,7 @@
-// import logo from './logo.svg';
 import "./App.css";
 import Cards from "./components/cards/Cards";
 import Headermain from "./components/headermain/Headermain";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Errorpage from "./components/errorpage/Errorpage";
 import Footer from "./components/footer/Footer";
 import { WordsProvider } from "./components/WordsContextProvider";
