@@ -1,6 +1,6 @@
 import styles from "./item.module.css";
 import Button from "../button/Button";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Add from "../../assets/image/svg/add_icon.svg";
 import Input from "../input/Input";
 import ButtonClear from "../button/ClearButton";
@@ -81,22 +81,6 @@ const TabInput=inject(['wordsStore'])(observer(({ wordsStore }) => {
     } else {
       postTranslation = inputTranslationValue.trim().toLowerCase();
     }
-  };
-  const postData = async (url, id, english, transcription, russian) => {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: id,
-        english: english,
-        transcription: transcription,
-        russian: russian,
-      }),
-    });
-    const json = await response.json();
-    console.log(json);
   };
 
   const onHandleSubmit = (e) => {
