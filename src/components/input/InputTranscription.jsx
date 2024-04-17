@@ -2,7 +2,7 @@ import Input from "./Input";
 import styles from "./input.module.css";
 import { useState, useEffect } from "react";
 
-function InputTerm(props) {
+function InputTranscription(props) {
   const {
     initialValue,
     isInputOpened,
@@ -19,15 +19,15 @@ function InputTerm(props) {
     setStatus("open");  
     setValue(e.target.value);
     console.log(value);
-    // setisInputEmpty(false);
-    // setisInputValid(true);
+    setisInputEmpty(false);
+    setisInputValid(true);
   };
   const regex = /[0-9\\.,\]\]]/g;
   let postValue = "";
   const checkInput = () => {
     if (isSaving) {
       if (value !== "" && !regex.test(value)) {
-        postValue = value.trim().toLowerCase();
+        postValue =`[${value.trim().toLowerCase()}]`;
 
         console.log(value.trim().toLowerCase());
       } else {
@@ -35,10 +35,8 @@ function InputTerm(props) {
         postValue='';
         if (value === "") {
           setisInputEmpty(true);
-          console.log(isInputEmpty);
         } else {
           setisInputValid(false);
-          console.log(isInputValid);
         }
       }
     }
@@ -55,8 +53,8 @@ function InputTerm(props) {
       {isInputOpened && (
         <Input
           status={status}
-          placeholder="term"
-          nameInput="term"
+          placeholder="transcription"
+          nameInput="transcription"
           content={value}
           onHandleChange={onInputChange}
           // onHandleFocus={onHandleFocus}
@@ -66,7 +64,7 @@ function InputTerm(props) {
   );
 }
 
-export default InputTerm;
+export default InputTranscription;
 
 // const TabInput=inject(['wordsStore'])(observer(({ wordsStore }) => {
 //     const [checkTerm, setcheckTerm] = useState(false);
