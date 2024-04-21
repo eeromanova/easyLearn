@@ -18,3 +18,9 @@ padding-top: 10px;
   background-color: var(--color-secondary);
   transition: background-color 1.5s;
 }
+@media screen and (max-width: 500px) {
+  .link{
+    font-size: 14px;
+    width: 60px;
+  }
+}
