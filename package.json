@@ -65,7 +65,7 @@
     "start": "node scripts/start.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build && cp _redirects build/_redirects",
+    "build": "react-scripts build",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
