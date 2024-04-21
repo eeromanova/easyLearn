@@ -2,7 +2,7 @@ import styles from "./cards.module.css";
 import Button from "../button/Button";
 import Arrowleft from "../../assets/image/svg/arrow_left.svg";
 import Arrowright from "../../assets/image/svg/arrow_right.svg";
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ButtonClear from "../button/ClearButton";
 import CardChange from "../card/Card";
 import CardChangeRuEn from "../card/CardRuEn";

@@ -1,4 +1,4 @@
-import { action, get, makeObservable, observable } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 
 class WordsStore {
   words = [];
@@ -16,6 +16,7 @@ class WordsStore {
   }
 
   getWords = async () => {
+    // this.isLoading = true; 
     if (this.isLoading) {
       try {
         const responseData = await fetch("/api/words")
@@ -92,19 +93,4 @@ class WordsStore {
 }
 export default WordsStore;
 
-// class WordsStore  extends React.Component{
-//     @observable words = []
 
-//     @action addWord = (word) => {
-
-//     }
-//     @action updateWord = (word) => {
-
-//     }
-
-//     @action deleteWord = (word) => {
-
-//     }
-// }
-
-// export default WordsStore
