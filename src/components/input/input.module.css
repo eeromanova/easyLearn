@@ -1,5 +1,9 @@
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+}
 .input {
-  min-height: 30px;
+  min-height: 40px;
   margin:5px auto;
   border-radius: 10px;
   font-size: 16px;
@@ -19,6 +23,11 @@
 .error{
   background-color: var(--color-error);
   border: 2px solid rgba(255, 0, 0, 0.441);
+}
+.error_text{
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 0, 0, 0.441);
 }
 @media screen and (max-width: 768px) {
   .input{

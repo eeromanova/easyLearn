@@ -1,72 +1,180 @@
-import Input from "./Input";
+// import Input from "./Input";
 import styles from "./input.module.css";
 import { useState, useEffect } from "react";
 
+
 function InputTerm(props) {
   const {
-    initialValue,
+    // initialValue,
     isInputOpened,
-    isSaving,
-    checkedValue,
-    isEmpty,
-    isValid,
+    // isSaving,
+    // checkedValue,
+    // isEmpty,
+    // isValid,
+    onHandleChange,
   } = props;
-  const [value, setValue] = useState(initialValue);
-  const [status, setStatus] = useState("open");
-  const [isInputEmpty, setisInputEmpty] = useState(true);
-  const [isInputValid, setisInputValid] = useState(true);
-  const onInputChange = (e) => {
-    setStatus("open");  
-    setValue(e.target.value);
-    console.log(value);
-    // setisInputEmpty(false);
-    // setisInputValid(true);
+
+  const [value, setValue] = useState(""); //здесь хранится то, что написал пользователь
+  const [err, setErr] = useState({ isErr: false, text: "", status: "open" }); //состояние ошибки. В ней 1) есть ли ошибка в инпуте? По умолчанию нет 2) текст ошибки (он может меняться) 3) статус для стилей
+  const onHandleImput = (event) => {
+    //все изменения, которые вносит пользователь принимаются этой фукнцией и записываются в состояние value, при этом если бо ввода любого дополнительного символа поле было с ошибкой (красное), оно меняется и статус ошибки пропадает
+    //запускается onChange на импуте
+    setErr((prevState) => ({
+      ...prevState,
+      isErr: false,
+      text: "",
+      status: "open",
+    }));
+    //меням ошибку на неошибку
+    setValue(event.target.value);
+    //сохраняем состояние
   };
   const regex = /[0-9\\.,\]\]]/g;
-  let postValue = "";
-  const checkInput = () => {
-    if (isSaving) {
-      if (value !== "" && !regex.test(value)) {
-        postValue = value.trim().toLowerCase();
-
-        console.log(value.trim().toLowerCase());
-      } else {
-        setStatus("error");
-        postValue='';
-        if (value === "") {
-          setisInputEmpty(true);
-          console.log(isInputEmpty);
-        } else {
-          setisInputValid(false);
-          console.log(isInputValid);
-        }
-      }
+  //твоя регулярка
+  const onHandleBlureFocus = () => {
+    //тут самое интересное. Эта функция вызывает функцию родителя, но только в том случае, если все валидно. если не валидно - меняется состояние ошибки, обрати внимание на текст
+    //эта фукнция срабатывает только в том случае, если пользователь что-то писал и перевел мышку на другой элемент
+    if (value === "") {
+      setErr((prevState) => ({
+        ...prevState,
+        isErr: true,
+        text: "field is still empty",
+        status: "error",
+      }));
+    } else if (regex.test(value)) {
+      setErr((prevState) => ({
+        ...prevState,
+        isErr: true,
+        text: "only letters allowed",
+        status: "error",
+      }));
+    } else {
+      //если все ок - то ошибка пропадает и данные передаются родителю
+      setErr((prevState) => ({
+        ...prevState,
+        isErr: false,
+        text: "",
+        status: "open",
+      }));
+      onHandleChange(true, value.trim().toLowerCase());
+      console.log(err, value);
     }
   };
+  const classInput = `${styles.input} ${styles[err.status]}`; //в стилях все без изменений
 
-  useEffect(() => {
-    checkInput();
-    isEmpty(isInputEmpty);
-    isValid(isInputValid);
-    checkedValue(postValue);
-  }, [isSaving]);
   return (
     <>
       {isInputOpened && (
-        <Input
-          status={status}
-          placeholder="term"
-          nameInput="term"
-          content={value}
-          onHandleChange={onInputChange}
-          // onHandleFocus={onHandleFocus}
-        />
-      )}
-    </>
+        <div className={styles.inputWrapper}>
+          <input
+            className={classInput}
+            placeholder="term"
+            // nameInput="translation"
+            id="term"
+            // onHandleChange={onHandleChange}
+            onChange={onHandleImput}
+            onBlur={onHandleBlureFocus}
+            // onHandleFocus={onHandleFocus}
+          />
+          {err.isErr && <label className={styles.error_text} htmlFor="term">{err.text}</label>}
+        </div>
+      )}    </>
   );
 }
 
 export default InputTerm;
+
+
+// function InputTerm(props) {
+//   const {
+//     initialValue,
+//     isInputOpened,
+//     // isSaving,
+//     checkedValue,
+//     isEmpty,
+//     isValid,
+//   } = props;
+//   const [value, setValue] = useState(initialValue);
+//   const [status, setStatus] = useState("open");
+//   const [isInputEmpty, setIsInputEmpty] = useState(false);
+//   const [isInputValid, setIsInputValid] = useState(true);
+//   const regex = /[0-9\\.,:^\]\]]/g;
+//   let postValue = "";
+//   const checkInput = (value) => {
+//     if (value !== "" && !regex.test(value)) {
+//       postValue = value.trim().toLowerCase();
+//       checkedValue(postValue);
+//       console.log(value.trim().toLowerCase());
+//     } else {
+//         // setStatus("error");
+//       console.log(status);
+//       postValue = "";
+//     //   if (value === "") {
+//     //     setIsInputEmpty(true);
+//     //     console.log(isInputEmpty);
+//     //   }
+//       if (regex.test(value)) {
+//         setIsInputValid(false);
+//         console.log(isInputValid);
+//       }
+//     }
+//   };
+//   const onInputChange = (e) => {
+//     setStatus("open");
+//     setValue(e.target.value);
+//     if (value === "" || regex.test(value)) {
+//         setStatus("error");
+//     } 
+//     // if (e.target.value === "") {
+//     //   setIsInputEmpty(true);
+//     // }
+//     // console.log(value);
+//     // checkInput(e.target.value);
+//     // isEmpty(isInputEmpty);
+//     // isValid(isInputValid);
+//     // console.log(isInputValid);
+//     // console.log(isInputEmpty);
+//     // console.log(postValue);
+//   };
+//   const onHandleFocus = (e) => {
+//     setValue(e.target.value);
+//     if (e.target.value === "") {
+//       setIsInputEmpty(true);
+//     }
+
+//     checkInput(e.target.value);
+//     isEmpty(isInputEmpty);
+//     isValid(isInputValid);
+//     console.log(value);
+//     console.log (status);
+//     console.log(isInputEmpty);
+//     console.log(isInputValid);
+//   };
+
+
+//   //   useEffect(() => {
+//   //     checkInput();
+//   //     isEmpty(isInputEmpty);
+//   //     isValid(isInputValid);
+//   //     checkedValue(postValue);
+//   //   }, [isSaving]);
+//   return (
+//     <>
+//       {isInputOpened && (
+//         <Input
+//           status={status}
+//           placeholder="term"
+//           nameInput="term"
+//           content={value}
+//           onHandleChange={onInputChange}
+//           onHandleFocus={onHandleFocus}
+//         />
+//       )}
+//     </> 
+//   );
+// }
+
+// export default InputTerm;
 
 // const TabInput=inject(['wordsStore'])(observer(({ wordsStore }) => {
 //     const [checkTerm, setcheckTerm] = useState(false);

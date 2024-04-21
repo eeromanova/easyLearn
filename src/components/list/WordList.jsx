@@ -18,7 +18,7 @@ const WordList = inject(["wordsStore"])(
 
     return (
       <div className={styles.container}>
-        <TabInputNew />
+        {/* <TabInputNew /> */}
         <TabInput />
         {wordsStore.isLoading && <Loader />}
         {/* {wordsUsed.map((item) => (
