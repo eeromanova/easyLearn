@@ -4,9 +4,11 @@ const WordsContext = createContext();
 function WordsProvider(props) {
   const [words, setWords] = useState([]);
   const [loading, setLoading] = useState(true);
+  const baseUrl = "https://itgirlschool.justmakeit.ru";
+
   const getWords = async () => {
     try {
-      const responseData = await fetch("http://itgirlschool.justmakeit.ru/api/words")
+      const responseData = await fetch(`${baseUrl}/api/words`)
         .then((res) => {
           if (res.ok) {
             return res.json();
