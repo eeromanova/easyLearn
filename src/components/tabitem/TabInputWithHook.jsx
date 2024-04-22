@@ -1,26 +1,17 @@
-import React from "react";
-import { useState, useEffect, useContext } from "react";
 import styles from "./item.module.css";
-import Input from "../input/Input";
 import Button from "../button/Button";
-import Edit from "../../assets/image/svg/edit_icon.svg";
-import Delete from "../../assets/image/svg/delete_icon.svg";
+import { useState } from "react";
+import Add from "../../assets/image/svg/add_icon.svg";
+import Input from "../input/Input";
+import ButtonClear from "../button/ClearButton";
 import Save from "../../assets/image/svg/save_icon.svg";
 import Cancel from "../../assets/image/svg/cancel_icon.svg";
-import ButtonClear from "../button/ClearButton";
-import SavedItem from "../savedItem/SavedItem";
+import React from "react";
 import { observer, inject } from "mobx-react";
 import useInput from "../../hooks/check-input";
 
-const ItemNew = inject(["wordsStore"])(
-  observer((props) => {
-    const { term, transcription, translation, id, wordsStore } = props;
-    const [change, setChange] = useState(false);
-    const [buttonStatus, setButtonStatus] = useState(false);
-    const handleClick = (e) => {
-      e.preventDefault();
-      setChange(!change);
-    };
+const TabInput = inject(["wordsStore"])(
+  observer(({ wordsStore }) => {
     const {
       value: termValue,
       isValid: isTermValid,
@@ -29,7 +20,7 @@ const ItemNew = inject(["wordsStore"])(
       inputLostFocusHandler: termLostFocusHandler,
       resetValues: termReset,
       styles: termStatus,
-    } = useInput(term);
+    } = useInput("");
 
     const {
       value: transcriptionValue,
@@ -39,7 +30,7 @@ const ItemNew = inject(["wordsStore"])(
       inputLostFocusHandler: transcriptionLostFocusHandler,
       resetValues: transcriptionReset,
       styles: transcriptionStatus,
-    } = useInput(transcription.replace(/[\[\]]/g, ""));
+    } = useInput("");
 
     const {
       value: translationValue,
@@ -49,7 +40,9 @@ const ItemNew = inject(["wordsStore"])(
       inputLostFocusHandler: translationLostFocusHandler,
       resetValues: translationReset,
       styles: translationStatus,
-    } = useInput(translation);
+    } = useInput("");
+
+    const [input, setInput] = useState(false);
 
     const [isValid, setIsValid] = useState(true);
     const [isEmpty, setIsEmpty] = useState(false);
@@ -64,6 +57,10 @@ const ItemNew = inject(["wordsStore"])(
         setIsValid(false);
         console.log(isValid);
       }
+    };
+    const handleClick = () => {
+      setInput(!input);
+      setIsValid(true);
     };
     let postTerm = "";
     let postTranscription = "";
@@ -80,49 +77,35 @@ const ItemNew = inject(["wordsStore"])(
         postTranslation = translationValue.trim().toLowerCase();
       }
     };
+
     const onHandleSubmit = (e) => {
       e.preventDefault();
       setIsEmpty(false);
       setIsValid(true);
       getPostWords();
       console.log(postTerm, postTranscription, postTranslation);
+      // onHandleCheckTerm();
+      // onHandleCheckTranscription();
+      // onHandleCheckTranslation();
 
       if (
         postTerm !== "" &&
         postTranscription !== "" &&
         postTranslation !== ""
       ) {
-        wordsStore.updateWord(id, postTerm, postTranscription, postTranslation);
-        setChange(false);
-        // wordsStore.getWords();
+        wordsStore.addWord(postTerm, postTranscription, postTranslation);
         // window.location.reload();
+
       } else {
         checkIsValid();
         checkIsEmpty();
       }
     };
-    const onHandleDelete = (e) => {
-      e.preventDefault();
-      wordsStore.deleteWord(
-        id,
-        termValue,
-        transcriptionValue,
-        translationValue
-      );
-      window.location.reload();
-    };
-
     return (
-      <form onSubmit={onHandleSubmit} className={styles.container}>
-        <div className={styles.container_input}>
-          {!change ? (
-            <>
-              <SavedItem content={term} />
-              <SavedItem content={transcription} />
-              <SavedItem content={translation} />
-            </>
-          ) : (
-            <>
+      <>
+        {input ? (
+          <form onSubmit={onHandleSubmit} className={styles.container}>
+            <div className={styles.container_input}>
               <Input
                 status={termStatus}
                 placeholder="term"
@@ -147,48 +130,35 @@ const ItemNew = inject(["wordsStore"])(
                 onHandleChange={translationChangeHandler}
                 onHandleFocus={translationLostFocusHandler}
               />
-            </>
-          )}
-        </div>
-        <div className={styles.container_buttons}>
-          {change ? (
+            </div>
+            <div className={styles.container_buttons}>
+              <Button type="submit" bgcolor="secondary" content={Save} />
+              <Button
+                onHandleClick={handleClick}
+                bgcolor="secondary"
+                content={Cancel}
+                buttonStatus={false}
+              />
+              <ButtonClear bgcolor="secondary" />
+            </div>
+            <div className={styles.error}>
+              {isEmpty && <div>Please, fill all the fields</div>}
+              {!isValid && <div>Only letters, please</div>}
+            </div>
+          </form>
+        ) : (
+          <div className={styles.addButton}>
             <Button
-              bgcolor="secondary"
-              content={Save}
-              buttonStatus={buttonStatus}
-              type="submit"
-            />
-          ) : (
-            <ButtonClear bgcolor="secondary" />
-          )}
-          {change ? (
-            <Button
-              bgcolor="secondary"
+              bgcolor="primary"
               onHandleClick={handleClick}
-              content={Cancel}
+              content={Add}
               buttonStatus={false}
             />
-          ) : (
-            <Button
-              bgcolor="secondary"
-              onHandleClick={handleClick}
-              content={Edit}
-              buttonStatus={false}
-            />
-          )}
-          <Button
-            bgcolor="secondary"
-            content={Delete}
-            buttonStatus={false}
-            onHandleClick={onHandleDelete}
-          />
-        </div>
-        <div className={styles.error}>
-          {isEmpty && <div>Please, fill all the fields</div>}
-          {!isValid && <div>Only letters, please</div>}
-        </div>
-      </form>
+          </div>
+        )}
+      </>
     );
   })
 );
-export default ItemNew;
+
+export default TabInput;

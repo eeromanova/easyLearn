@@ -5,7 +5,7 @@ import TabInput from "../tabitem/TabInput";
 import Loader from "../loader/Loader";
 import { observer, inject } from "mobx-react";
 import TabInputNew from "../tabitem/TabInput copy";
-// import ItemNew from "../tabitem/ItemNew";
+import ItemNew from "../tabitem/ItemNew";
 
 const WordList = inject(["wordsStore"])(
   observer(({ wordsStore }) => {
@@ -18,7 +18,7 @@ const WordList = inject(["wordsStore"])(
 
     return (
       <div className={styles.container}>
-        {/* <TabInputNew /> */}
+        <TabInputNew />
         <TabInput />
         {wordsStore.isLoading && <Loader />}
         {/* {wordsUsed.map((item) => (
@@ -29,8 +29,8 @@ const WordList = inject(["wordsStore"])(
           translation={item.russian}
         />
       ))} */}
-        {wordsUsed.map((item) => (
-          <Item
+              {wordsUsed.map((item) => (
+          <ItemNew
             key={item.id}
             term={item.english}
             transcription={item.transcription}
@@ -38,9 +38,19 @@ const WordList = inject(["wordsStore"])(
             id={item.id}
           />
         ))}
+        {/* {wordsUsed.map((item) => (
+          <Item
+            key={item.id}
+            term={item.english}
+            transcription={item.transcription}
+            translation={item.russian}
+            id={item.id}
+          />
+        ))} */}
       </div>
     );
   })
 );
 
 export default WordList;
+
