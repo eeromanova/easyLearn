@@ -4,7 +4,18 @@
     url("./fonts/Montserrat-Medium.ttf") format("truetype"),
     url("./fonts/Montserrat-Thin.ttf") format("truetype");
 }
+
 @font-face {
   font-family: 'Nunito';
   src: url('./fonts/Nunito-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Railway';
+  src: url('./fonts/Raleway-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Kanit";
+  src: url("./fonts/Kanit-Black.ttf") format("truetype"),
+    url("./fonts/Kanit-BlackItalic.ttf") format("truetype"),
+    url("./fonts/Kanit-Bold.ttf") format("truetype");}
