@@ -4,6 +4,10 @@
   
 <img src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appFotonew.png">
 
+<img src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appGif.gif">
+
+
+
 ## Description
 
 <ul>It's a single-page application, that contains:
