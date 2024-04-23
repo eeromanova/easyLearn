@@ -2,7 +2,7 @@
 
 <h1 align="center">SPA for learning english words</h1>
   
-<img src="">
+<img src="https://github.com/eeromanova/easyLearn/src/assets/image/2024-04-23.png">
 
 ## Description
 
