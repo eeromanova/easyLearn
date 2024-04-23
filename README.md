@@ -34,4 +34,4 @@
 
 ### Gh-page
 
-<a href='https://eeromanova.github.io/easyLearn/'>Gh-page</a>
+<a href='https://eeromanova.github.io/easyLearn/'>easyLearn</a>
