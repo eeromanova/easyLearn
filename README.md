@@ -1,7 +1,5 @@
 # easyLearn
 
-# RecipeApp
-
 <h1 align="center">SPA for learning english words</h1>
   
 <img src="">
