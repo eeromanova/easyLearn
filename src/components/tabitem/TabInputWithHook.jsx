@@ -9,6 +9,7 @@ import Cancel from "../../assets/image/svg/cancel_icon.svg";
 import React from "react";
 import { observer, inject } from "mobx-react";
 import useInput from "../../hooks/check-input";
+import { set } from "mobx";
 
 const TabInput = inject(["wordsStore"])(
   observer(({ wordsStore }) => {
@@ -61,6 +62,10 @@ const TabInput = inject(["wordsStore"])(
     const handleClick = () => {
       setInput(!input);
       setIsValid(true);
+      setIsEmpty(false);
+      termReset();
+      transcriptionReset();
+      translationReset();
     };
     let postTerm = "";
     let postTranscription = "";

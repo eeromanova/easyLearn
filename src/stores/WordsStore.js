@@ -18,9 +18,10 @@ class WordsStore {
   }
 
   getWords = async () => {
-    // this.isLoading = true; 
-    if (this.isLoading) {
+    // // this.isLoading = true; 
+    // if (this.isLoading) {
       try {
+
         const responseData = await fetch(`${baseUrl}/api/words`)
           .then((res) => {
             if (res.ok) {
@@ -38,7 +39,6 @@ class WordsStore {
         console.log(err);
         this.isLoading = false;
       }
-    }
   };
   addWord = async (english, transcription, russian) => {
     const response = await fetch(`${baseUrl}/api/words/add`, {

@@ -54,3 +54,8 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
 }
+@media screen and (max-width: 920px) {
+  .textcontainer{
+    width: 80%;
+  }
+}

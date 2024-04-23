@@ -16,10 +16,14 @@ const ItemNew = inject(["wordsStore"])(
   observer((props) => {
     const { term, transcription, translation, id, wordsStore } = props;
     const [change, setChange] = useState(false);
+    const [isValid, setIsValid] = useState(true);
+    const [isEmpty, setIsEmpty] = useState(false);
     const [buttonStatus, setButtonStatus] = useState(false);
     const handleClick = (e) => {
       e.preventDefault();
       setChange(!change);
+      setIsValid(true);
+      setIsEmpty(false);
     };
     const {
       value: termValue,
@@ -51,8 +55,7 @@ const ItemNew = inject(["wordsStore"])(
       styles: translationStatus,
     } = useInput(translation);
 
-    const [isValid, setIsValid] = useState(true);
-    const [isEmpty, setIsEmpty] = useState(false);
+
     const checkIsEmpty = () => {
       if (isTermEmpty || isTranscriptionEmpty || isTranslationEmpty) {
         setIsEmpty(true);
@@ -109,7 +112,7 @@ const ItemNew = inject(["wordsStore"])(
         transcriptionValue,
         translationValue
       );
-      window.location.reload();
+      // window.location.reload();
     };
 
     return (
