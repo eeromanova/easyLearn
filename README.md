@@ -4,9 +4,9 @@
   
 <img src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appFotonew.png">
 
-<p aligh='center'> How it works </p>
+## How it works
 
-<img aligh='center' src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appGif.gif">
+<img align="center" src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appGif.gif">
 
 
 
