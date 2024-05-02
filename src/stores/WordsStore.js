@@ -22,7 +22,7 @@ class WordsStore {
     // if (this.isLoading) {
       try {
 
-        const responseData = await fetch('http://itgirlschool.justmakeit.ru/api/words')
+        const responseData = await fetch('https://itgirlschool.justmakeit.ru/api/words')
           .then((res) => {
             if (res.ok) {
               return res.json();
@@ -41,7 +41,7 @@ class WordsStore {
       }
   };
   addWord = async (english, transcription, russian) => {
-    const response = await fetch('http://itgirlschool.justmakeit.ru/api/words/add', {
+    const response = await fetch('https://itgirlschool.justmakeit.ru/api/words/add', {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
@@ -59,7 +59,7 @@ class WordsStore {
   };
 
   updateWord = async (id, english, transcription, russian) => {
-        const response = await fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
+        const response = await fetch(`https://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -76,7 +76,7 @@ class WordsStore {
         console.log(json);
       };
   deleteWord = async (id, english, transcription, russian) => {
-        const response = await fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
+        const response = await fetch(`https://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
