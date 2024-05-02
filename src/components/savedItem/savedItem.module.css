@@ -4,9 +4,10 @@
     margin:5px auto;
     border-radius: 10px;
     font-size: 16px;
-    font-family: Nunito;
+    font-family: var(--font-main);
     font-weight: bold;
     border: none;
+    font-style: italic;
     text-align: center;
     background-color: var(--color-secondary);
     color: white;

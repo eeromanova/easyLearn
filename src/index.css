@@ -22,6 +22,7 @@ code {
   --color-input:rgb(255, 255, 255);
   --color-error:rgb(255, 222, 222);
   --fontsize: 16px;
+  --font-main: Nunito, sans-serif;
   /* --color-primary:rgb(182, 178, 207);
   --color-secondary:rgb(43, 39, 70); */
 }

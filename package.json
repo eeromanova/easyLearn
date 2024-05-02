@@ -94,7 +94,7 @@
     "@babel/preset-env": "^7.24.4",
     "gh-pages": "^6.1.1"
   },
-  "proxy": "https://itgirlschool.justmakeit.ru",
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "jest": {
     "roots": [
       "<rootDir>/src"

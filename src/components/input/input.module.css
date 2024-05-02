@@ -8,8 +8,9 @@
   margin:5px auto;
   border-radius: 10px;
   font-size: 16px;
-  font-family: Nunito;
+  font-family: var(--font-main);
   font-weight: bold;
+  font-style: italic;
   border: none;
   text-align: center;
 }
