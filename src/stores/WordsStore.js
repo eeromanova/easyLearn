@@ -22,7 +22,7 @@ class WordsStore {
     // if (this.isLoading) {
       try {
 
-        const responseData = await fetch('/api/words')
+        const responseData = await fetch('http://itgirlschool.justmakeit.ru/api/words')
           .then((res) => {
             if (res.ok) {
               return res.json();
