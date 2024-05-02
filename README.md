@@ -2,7 +2,13 @@
 
 <h1 align="center">SPA for learning english words</h1>
   
-<img src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appFoto.png">
+<img src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appFotonew.png">
+
+## How it works
+
+<img align="center" src="https://github.com/eeromanova/easyLearn/raw/main/src/assets/image/appGif.gif">
+
+
 
 ## Description
 
